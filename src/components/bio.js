@@ -38,11 +38,22 @@ function Bio() {
               }}
             />
             <p>
-              Written by meeee, <strong>{author}</strong>, a reasonably decent
-              frontend developer who lives and works in Melbourne, Australia.
-              Stalk me on{" "}
-              <a href={`https://twitter.com/${social.twitter}`}>Twitter</a> and{" "}
-              <a href={`https://github.com/${social.github}`}>GitHub</a>.
+              <strong>{author}</strong> is a frontend developer living and
+              working in Melbourne who really likes{" "}
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                JavaScript
+              </a>
+              , <a href="https://reactjs.org/">React</a> and{" "}
+              <a href="https://www.monsterhunterworld.com/" title="doot doot!">
+                video
+              </a>{" "}
+              <a
+                href="https://www.sekirothegame.com"
+                title="Hesitation is defeat"
+              >
+                games
+              </a>
+              .
             </p>
           </div>
         )
