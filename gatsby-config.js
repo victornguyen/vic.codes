@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Vic's Blog!`,
+    title: `Victor Nguyen`,
     author: `Victor Nguyen`,
-    description: `Another blog made by another frontend developer on the Internet.`,
+    job: `Frontend Developer`,
+    description: `It's another blog made by another frontend developer on the Internet.`,
     siteUrl: `https://vic.codes/`,
     social: {
       twitter: `victornguyen`,
