@@ -5,11 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
 function Bio() {
   return (
@@ -39,14 +39,14 @@ function Bio() {
             />
             <p>
               <strong>{author}</strong> is a frontend developer living and
-              working in Melbourne who really likes{" "}
+              working in Melbourne who really likes{' '}
               <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
                 JavaScript
               </a>
-              , <a href="https://reactjs.org/">React</a> and{" "}
+              , <a href="https://reactjs.org/">React</a> and{' '}
               <a href="https://www.monsterhunterworld.com/" title="doot doot!">
                 video
-              </a>{" "}
+              </a>{' '}
               <a
                 href="https://www.sekirothegame.com"
                 title="Hesitation is defeat"

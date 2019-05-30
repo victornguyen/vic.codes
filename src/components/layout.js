@@ -1,6 +1,7 @@
-import React from "react"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
 const Layout = ({ author, children }) => (
   <div
@@ -19,5 +20,10 @@ const Layout = ({ author, children }) => (
     </footer>
   </div>
 )
+
+Layout.propTypes = {
+  author: PropTypes.string.isRequired,
+  children: PropTypes.node,
+}
 
 export default Layout

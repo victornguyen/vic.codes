@@ -1,10 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { rhythm } from '../utils/typography'
 
 class BlogIndex extends React.Component {
   render() {
@@ -41,6 +42,11 @@ class BlogIndex extends React.Component {
       </Layout>
     )
   }
+}
+
+BlogIndex.propTypes = {
+  data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 }
 
 export default BlogIndex

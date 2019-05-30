@@ -1,10 +1,11 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-class NotFoundPage extends React.Component {
+class NotFoundPage extends Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -17,6 +18,11 @@ class NotFoundPage extends React.Component {
       </Layout>
     )
   }
+}
+
+NotFoundPage.propTypes = {
+  data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 }
 
 export default NotFoundPage

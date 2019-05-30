@@ -1,10 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -64,6 +65,12 @@ class BlogPostTemplate extends React.Component {
       </Layout>
     )
   }
+}
+
+BlogPostTemplate.propTypes = {
+  data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  pageContext: PropTypes.object.isRequired,
 }
 
 export default BlogPostTemplate
