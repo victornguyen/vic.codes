@@ -1,3 +1,13 @@
+/* TODO: import this via a package? */
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+:root {
+  --bg: #fff;
+  --text: #111;
+}
+
 body {
-  background: lavender;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rubik', sans-serif;
 }
