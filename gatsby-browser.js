@@ -1,3 +1,6 @@
+// typefaces
+import 'typeface-rubik'
+
 // css reset
 import 'sanitize.css'
 
