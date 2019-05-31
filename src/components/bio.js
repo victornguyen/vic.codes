@@ -20,44 +20,27 @@ const Avatar = styled(Image)`
   border-radius: 100%;
 `
 
-const Copy = styled.p`
+const Copy = styled.section`
   font-size: 20px;
 `
-
-// TODO: import the copy (and links) for this from somewhere pls
 
 const Bio = () => (
   <StaticQuery
     query={query}
     render={data => {
-      const { author, social } = data.site.siteMetadata
+      const { fixed } = data.avatar.childImageSharp
+      const { author } = data.site.siteMetadata
+      const { html } = data.copy
       return (
         <Container>
           <Avatar
-            fixed={data.avatar.childImageSharp.fixed}
+            fixed={fixed}
             alt={author}
             imgStyle={{
               borderRadius: `50%`,
             }}
           />
-          <Copy>
-            <strong>{author}</strong> is a frontend developer living and working
-            in Melbourne who really likes{' '}
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-              JavaScript
-            </a>
-            , <a href="https://reactjs.org/">React</a> and{' '}
-            <a href="https://www.monsterhunterworld.com/" title="doot doot!">
-              video
-            </a>{' '}
-            <a
-              href="https://www.sekirothegame.com"
-              title="Hesitation is defeat"
-            >
-              games
-            </a>
-            .
-          </Copy>
+          <Copy dangerouslySetInnerHTML={{ __html: html }} />
         </Container>
       )
     }}
@@ -73,13 +56,13 @@ const query = graphql`
         }
       }
     }
+    copy: markdownRemark(frontmatter: { title: { eq: "Bio" } }) {
+      id
+      html
+    }
     site {
       siteMetadata {
         author
-        social {
-          twitter
-          github
-        }
       }
     }
   }
