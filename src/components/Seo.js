@@ -6,6 +6,7 @@ import { useSiteMetadata } from '../hooks'
 function SEO({ description, lang, meta, title }) {
   const siteMetadata = useSiteMetadata()
   const metaDescription = description || siteMetadata.description
+  const defaultTitle = title || `${siteMetadata.title} | ${siteMetadata.job}`
 
   return (
     <Helmet
@@ -13,6 +14,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
+      defaultTitle={defaultTitle}
       titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
@@ -21,7 +23,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: title || defaultTitle,
         },
         {
           property: `og:description`,
@@ -41,7 +43,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: title || defaultTitle,
         },
         {
           name: `twitter:description`,
@@ -56,13 +58,14 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  title: ``,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 }
 
 export default SEO

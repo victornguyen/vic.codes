@@ -17,7 +17,7 @@ const Links = styled.section`
 const Index = ({ location }) => {
   return (
     <Layout location={location}>
-      <SEO title="All posts" />
+      <SEO />
       <Bio />
       <Links>
         <Social />
