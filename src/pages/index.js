@@ -12,7 +12,7 @@ import Blog from '../components/Blog'
 
 const Links = styled.section`
   display: flex;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 `
 
 const Index = ({ location }) => {

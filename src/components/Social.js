@@ -35,7 +35,7 @@ const Social = () => {
 
   return (
     <Container>
-      <Title>Stalk me 🗯</Title>
+      <Title>Stalk me 🔎</Title>
       <List dangerouslySetInnerHTML={{ __html: content.html }} />
     </Container>
   )

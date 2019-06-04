@@ -28,8 +28,8 @@ const Avatar = styled(Image)`
   top: 40px;
   margin-left: -110px;
   min-width: 80px;
-  border-radius: 100%;
-  border: 10px solid gold;
+  border-radius: 30%;
+  border: 6px solid gold;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 `
 
@@ -76,13 +76,7 @@ const Bio = () => {
   return (
     <Container>
       <Inner>
-        <Avatar
-          fixed={fixed}
-          alt={author}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
+        <Avatar fixed={fixed} alt={author} />
         <Copy dangerouslySetInnerHTML={{ __html: html }} />
       </Inner>
     </Container>
