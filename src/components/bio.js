@@ -47,6 +47,8 @@ const Bio = () => (
   />
 )
 
+export default Bio
+
 const query = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/face.jpg/" }) {
@@ -67,5 +69,3 @@ const query = graphql`
     }
   }
 `
-
-export default Bio
