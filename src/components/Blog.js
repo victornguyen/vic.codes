@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Container = styled.section``
 
 const Title = styled.h2`
-  font-size: 24px;
+  font-size: 26px;
 `
 
 const PostTitle = styled.h3`
