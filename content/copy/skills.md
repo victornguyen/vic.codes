@@ -2,7 +2,7 @@
 title: Skills
 ---
 
-- JavaScript
+- JavaScript (ES6+)
 - React
 - CSS
-- [More detail](/stuff)
+- Node

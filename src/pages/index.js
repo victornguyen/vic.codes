@@ -8,7 +8,6 @@ import Bio from '../components/Bio'
 import Social from '../components/Social'
 import Hire from '../components/Hire'
 import Skills from '../components/Skills'
-import Blog from '../components/Blog'
 
 const Links = styled.section`
   display: flex;
@@ -25,7 +24,6 @@ const Index = ({ location }) => {
         <Hire />
         <Skills />
       </Links>
-      <Blog />
     </Layout>
   )
 }
