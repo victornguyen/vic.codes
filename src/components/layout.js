@@ -18,6 +18,7 @@ const Layout = ({ author, children }) => (
 )
 
 Layout.propTypes = {
+  // TODO: should this be a prop? maybe it should query it itself?
   author: PropTypes.string.isRequired,
   children: PropTypes.node,
 }
