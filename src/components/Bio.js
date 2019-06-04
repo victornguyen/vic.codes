@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
+import { useSiteMetadata } from '../hooks'
 
 const Container = styled.header`
   display: flex;
@@ -31,16 +32,11 @@ const Bio = () => {
         id
         html
       }
-      site {
-        siteMetadata {
-          author
-        }
-      }
     }
   `)
 
+  const { author } = useSiteMetadata()
   const { fixed } = data.avatar.childImageSharp
-  const { author } = data.site.siteMetadata
   const { html } = data.copy
 
   return (

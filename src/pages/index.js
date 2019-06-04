@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
@@ -9,10 +8,9 @@ import Social from '../components/Social'
 import Hire from '../components/Hire'
 import Blog from '../components/Blog'
 
-const Index = ({ data, location }) => {
-  const author = data.site.siteMetadata.author
+const Index = ({ location }) => {
   return (
-    <Layout location={location} author={author}>
+    <Layout location={location}>
       <SEO title="All posts" />
       <Bio />
       <Social />
@@ -23,18 +21,7 @@ const Index = ({ data, location }) => {
 }
 
 Index.propTypes = {
-  data: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 }
 
 export default Index
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        author
-      }
-    }
-  }
-`
