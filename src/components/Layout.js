@@ -26,9 +26,9 @@ const Layout = ({ children }) => {
     <Container>
       <main>{children}</main>
       <Footer>
-        © {new Date().getFullYear()} {author}. Built with
+        © {new Date().getFullYear()} {author}. Over-engineered with
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a> and hosted on
+        <a href="https://www.gatsbyjs.org">Gatsby</a>, hosted on
         {` `}
         <a href="https://www.netlify.com">Netlify</a>. Check out this
         site&rsquo;s
