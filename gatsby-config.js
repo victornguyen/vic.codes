@@ -62,11 +62,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Victor Nguyen | Frontend Developer`,
+        short_name: `Vic`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#FF69B4`,
+        theme_color: `#FFD700`,
         display: `minimal-ui`,
         icon: `content/assets/favicon.png`,
       },
