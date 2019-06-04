@@ -13,7 +13,7 @@ const Container = styled.header`
   margin-left: -50vw;
   margin-right: -50vw;
   margin-bottom: 20px;
-  background: hotpink;
+  background: var(--link);
 `
 
 const Inner = styled.section`
@@ -25,11 +25,11 @@ const Inner = styled.section`
 
 const Avatar = styled(Image)`
   position: fixed !important;
-  top: 40px;
+  top: 45px;
   margin-left: -110px;
   min-width: 80px;
   border-radius: 30%;
-  border: 6px solid gold;
+  border: 6px solid var(--accent);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 `
 
@@ -40,14 +40,20 @@ const Copy = styled.section`
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
   strong {
     text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.5);
+    a {
+      color: #fff;
+    }
   }
   a {
-    color: gold;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--accent);
     background: rgba(0, 0, 0, 0.1);
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     :hover {
-      background: rgba(0, 0, 0, 0.2);
+      background: var(--accent);
+      color: var(--title);
+      text-shadow: none;
+      border-color: transparent;
     }
   }
 `

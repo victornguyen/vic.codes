@@ -3,6 +3,7 @@
   --text: #444;
   --title: #333;
   --link: hotpink;
+  --accent: gold;
 }
 
 body {
@@ -12,15 +13,16 @@ body {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
   color: var(--link);
-  display: inline-block;
   padding: 0 8px;
+  background: rgba(0, 0, 0, 0.02);
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: rgba(0, 0, 0, 0.02);
 }
 
 a:hover {
-  background: rgba(0, 0, 0, 0.06);
+  background: var(--accent);
+  color: var(--title);
 }
