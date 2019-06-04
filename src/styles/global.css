@@ -2,7 +2,7 @@
   --bg: #fff;
   --text: #444;
   --title: #333;
-  --link: hotpink;
+  --brand: hotpink;
   --accent: gold;
 }
 
@@ -15,7 +15,7 @@ body {
 a {
   display: inline-block;
   text-decoration: none;
-  color: var(--link);
+  color: var(--brand);
   padding: 0 8px;
   background: rgba(0, 0, 0, 0.02);
   border-radius: 5px;

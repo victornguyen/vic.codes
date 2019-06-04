@@ -13,7 +13,7 @@ const Container = styled.header`
   margin-left: -50vw;
   margin-right: -50vw;
   margin-bottom: 20px;
-  background: var(--link);
+  background: var(--brand);
 `
 
 const Inner = styled.section`
