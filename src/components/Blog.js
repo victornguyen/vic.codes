@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Container = styled.section``
@@ -15,9 +15,7 @@ const Post = ({ node }) => {
   return (
     <div key={node.fields.slug}>
       <h3>
-        <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-          {title}
-        </Link>
+        <Link to={node.fields.slug}>{title}</Link>
       </h3>
       <small>{node.frontmatter.date}</small>
       <p

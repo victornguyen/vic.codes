@@ -1,23 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { useSiteMetadata } from '../hooks'
+
+const Container = styled.section`
+  margin-left: auto;
+  margin-right: auto;
+`
 
 const Layout = ({ children }) => {
   const { author } = useSiteMetadata()
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-      }}
-    >
+    <Container>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()} {author}. Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
-    </div>
+    </Container>
   )
 }
 
