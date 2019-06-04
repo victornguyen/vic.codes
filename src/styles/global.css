@@ -2,11 +2,7 @@
   --bg: #fff;
   --text: #444;
   --title: #333;
-  --link: darksalmon;
-}
-
-strong {
-  color: var(--title);
+  --link: hotpink;
 }
 
 body {
@@ -18,4 +14,13 @@ body {
 a {
   text-decoration: none;
   color: var(--link);
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+a:hover {
+  background: rgba(0, 0, 0, 0.06);
 }

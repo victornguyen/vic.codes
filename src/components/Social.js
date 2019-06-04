@@ -8,10 +8,19 @@ const Container = styled.section`
 
 const Title = styled.h2`
   font-size: 24px;
+  margin-bottom: 14px;
 `
 
 const List = styled.div`
   font-size: 22px;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin-bottom: 8px;
+  }
 `
 
 const Social = () => {
@@ -26,7 +35,7 @@ const Social = () => {
 
   return (
     <Container>
-      <Title>#️⃣ Stalk me</Title>
+      <Title>Stalk me 🗯</Title>
       <List dangerouslySetInnerHTML={{ __html: content.html }} />
     </Container>
   )

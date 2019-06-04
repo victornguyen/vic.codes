@@ -5,7 +5,7 @@ import { useSiteMetadata } from '../hooks'
 
 const Container = styled.div`
   width: 60%;
-  max-width: 900px;
+  max-width: 780px;
   margin-left: auto;
   margin-right: auto;
 `

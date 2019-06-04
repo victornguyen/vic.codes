@@ -65,7 +65,7 @@ const Blog = () => {
 
   return (
     <Container>
-      <Title>📝 Writing</Title>
+      <Title>Writing ✍</Title>
       {posts.map(({ node }) => (
         <Post key={node.id} node={node} />
       ))}
