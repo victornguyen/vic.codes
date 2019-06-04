@@ -5,11 +5,6 @@ module.exports = {
     job: `Frontend Developer`,
     description: `It's another blog made by another frontend developer on the Internet.`,
     siteUrl: `https://vic.codes/`,
-    social: {
-      twitter: `victornguyen`,
-      github: `victornguyen`,
-      linkedin: `therealvictornguyen`,
-    },
   },
   plugins: [
     {
