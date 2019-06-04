@@ -11,7 +11,7 @@ const Title = styled.h2`
 
 const PostTitle = styled.h3`
   font-size: 22px;
-  font-weight: 500;
+  font-weight: normal;
   margin: 0;
 `
 
