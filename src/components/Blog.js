@@ -5,18 +5,23 @@ import styled from 'styled-components'
 
 const Container = styled.section``
 
-const Title = styled.h3`
+const Title = styled.h2`
+  font-size: 24px;
+`
+
+const PostTitle = styled.h3`
   font-size: 22px;
   font-weight: 500;
+  margin: 0;
 `
 
 const Post = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug
   return (
     <div key={node.fields.slug}>
-      <h3>
+      <PostTitle>
         <Link to={node.fields.slug}>{title}</Link>
-      </h3>
+      </PostTitle>
       <small>{node.frontmatter.date}</small>
       <p
         dangerouslySetInnerHTML={{
@@ -60,7 +65,7 @@ const Blog = () => {
 
   return (
     <Container>
-      <Title>Writing</Title>
+      <Title>📝 Writing</Title>
       {posts.map(({ node }) => (
         <Post key={node.id} node={node} />
       ))}

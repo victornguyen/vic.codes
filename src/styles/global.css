@@ -1,10 +1,21 @@
 :root {
   --bg: #fff;
-  --text: #333;
+  --text: #444;
+  --title: #333;
+  --link: darksalmon;
+}
+
+strong {
+  color: var(--title);
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Rubik', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link);
 }

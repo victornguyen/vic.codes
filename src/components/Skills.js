@@ -14,10 +14,10 @@ const List = styled.div`
   font-size: 22px;
 `
 
-const Hire = () => {
+const Skills = () => {
   const { content } = useStaticQuery(graphql`
-    query HireQuery {
-      content: markdownRemark(frontmatter: { title: { eq: "Hire" } }) {
+    query SkillsQuery {
+      content: markdownRemark(frontmatter: { title: { eq: "Skills" } }) {
         id
         html
       }
@@ -26,10 +26,10 @@ const Hire = () => {
 
   return (
     <Container>
-      <Title>💼 Hire me</Title>
+      <Title>👨‍💻 Mad skills</Title>
       <List dangerouslySetInnerHTML={{ __html: content.html }} />
     </Container>
   )
 }
 
-export default Hire
+export default Skills

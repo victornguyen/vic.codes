@@ -5,17 +5,22 @@ import Image from 'gatsby-image'
 import { useSiteMetadata } from '../hooks'
 
 const Container = styled.header`
-  display: flex;
+  position: relative;
+  padding-top: 20px;
 `
 
 const Avatar = styled(Image)`
-  margin: 0 20px 0 0;
+  position: fixed !important;
+  top: 32px;
+  margin-left: -100px;
   min-width: 80px;
   border-radius: 100%;
+  border: 10px solid pink;
 `
 
 const Copy = styled.section`
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 1.4;
 `
 
 const Bio = () => {

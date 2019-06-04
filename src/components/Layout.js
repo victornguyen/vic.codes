@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useSiteMetadata } from '../hooks'
 
-const Container = styled.section`
+const Container = styled.div`
+  width: 60%;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 `

@@ -2,11 +2,12 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 
-const Container = styled.section``
+const Container = styled.section`
+  width: 33%;
+`
 
-const Title = styled.h3`
-  font-size: 22px;
-  font-weight: 500;
+const Title = styled.h2`
+  font-size: 24px;
 `
 
 const List = styled.div`
@@ -25,7 +26,7 @@ const Social = () => {
 
   return (
     <Container>
-      <Title>Stalk me</Title>
+      <Title>#️⃣ Stalk me</Title>
       <List dangerouslySetInnerHTML={{ __html: content.html }} />
     </Container>
   )
