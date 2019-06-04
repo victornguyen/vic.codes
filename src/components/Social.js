@@ -1,6 +1,6 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
 
 const Container = styled.section``
 
@@ -13,28 +13,22 @@ const List = styled.div`
   font-size: 22px;
 `
 
-const Social = () => (
-  <StaticQuery
-    query={query}
-    render={data => {
-      const { html } = data.content
-      return (
-        <Container>
-          <Title>Stalk me</Title>
-          <List dangerouslySetInnerHTML={{ __html: html }} />
-        </Container>
-      )
-    }}
-  />
-)
+const Social = () => {
+  const { content } = useStaticQuery(graphql`
+    query SocialQuery {
+      content: markdownRemark(frontmatter: { title: { eq: "Social" } }) {
+        id
+        html
+      }
+    }
+  `)
+
+  return (
+    <Container>
+      <Title>Stalk me</Title>
+      <List dangerouslySetInnerHTML={{ __html: content.html }} />
+    </Container>
+  )
+}
 
 export default Social
-
-const query = graphql`
-  query SocialQuery {
-    content: markdownRemark(frontmatter: { title: { eq: "Social" } }) {
-      id
-      html
-    }
-  }
-`
