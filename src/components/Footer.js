@@ -34,10 +34,9 @@ const Footer = ({ className }) => {
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>, hosted on
         {` `}
-        <a href="https://www.netlify.com">Netlify</a>. Check out this
-        site&rsquo;s
+        <a href="https://www.netlify.com">Netlify</a>, source code on
         {` `}
-        <a href="https://github.com/victornguyen/vic.codes">source code</a>.
+        <a href="https://github.com/victornguyen/vic.codes">GitHub</a>.
       </FooterColumn>
     </FooterBreakout>
   )
