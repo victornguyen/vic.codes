@@ -6,15 +6,20 @@ import sizes from '../styles/sizes'
 const Container = styled.section`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   margin-bottom: 30px;
   text-align: center;
-  @media (min-width: ${sizes.viewport7}) {
+  @media (min-width: ${sizes.viewport4}) {
     flex-direction: row;
     text-align: left;
   }
 `
 
 const Block = styled.article`
+  flex-grow: 1;
+  @media (min-width: ${sizes.viewport4}) {
+    width: 50%;
+  }
   @media (min-width: ${sizes.viewport7}) {
     width: 33%;
   }
