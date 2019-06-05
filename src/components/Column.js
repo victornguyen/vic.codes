@@ -15,10 +15,13 @@ const Container = styled.section`
 `
 
 // TODO: prop to customise node type?
-const Column = ({ children }) => <Container>{children}</Container>
+const Column = ({ children, className }) => (
+  <Container className={className}>{children}</Container>
+)
 
 Column.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
 }
 
 export default Column
