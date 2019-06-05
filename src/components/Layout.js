@@ -2,17 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useSiteMetadata } from '../hooks'
+import Column from './Column'
 
-const Container = styled.div`
+const Container = styled(Column)`
   display: flex;
   flex-direction: column;
-  width: 60%;
   height: 100vh;
-  max-width: 780px;
-  margin-left: auto;
-  margin-right: auto;
 `
 
+// TODO: create standalone component for footer
 const Footer = styled.footer`
   margin-top: auto;
   padding: 20px 0;
