@@ -2,9 +2,16 @@
   --bg: #fff;
   --text: #444;
   --text-light: #999;
-  --title: #333;
   --brand: hotpink;
   --accent: gold;
+  --title-color: #333;
+  --title-size: calc(16px + 1vw);
+}
+
+@media (min-width: 992px) {
+  :root {
+    --title-size: 26px;
+  }
 }
 
 body {
@@ -25,5 +32,5 @@ a {
 
 a:hover {
   background: var(--accent);
-  color: var(--title);
+  color: var(--title-color);
 }
