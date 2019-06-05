@@ -3,19 +3,15 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
+
 import Image from 'gatsby-image'
+import Breakout from './Breakout'
 import Column from './Column'
 
-// TODO: create `Breakout` component with this Container/Column combo?
-const Container = styled.header`
+const BioBreakout = styled(Breakout)`
   position: relative;
-  padding: 25px 0 2.5vw 0;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   margin-bottom: 20px;
+  padding: 25px 0 2.5vw 0;
   background: var(--brand);
   @media (min-width: ${sizes.viewport9}) {
     padding-bottom: 25px;
@@ -88,12 +84,12 @@ const Bio = () => {
   const { html } = data.copy
 
   return (
-    <Container>
+    <BioBreakout type="header">
       <Column>
         <Avatar fixed={fixed} alt={author} />
         <Copy dangerouslySetInnerHTML={{ __html: html }} />
       </Column>
-    </Container>
+    </BioBreakout>
   )
 }
 
