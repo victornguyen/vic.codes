@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const createNode = type =>
   styled[type]`
+    position: relative;
     width: 100vw;
     left: 50%;
     right: 50%;

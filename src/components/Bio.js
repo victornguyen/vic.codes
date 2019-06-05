@@ -9,7 +9,6 @@ import Breakout from './Breakout'
 import Column from './Column'
 
 const BioBreakout = styled(Breakout)`
-  position: relative;
   margin-bottom: 20px;
   padding: 25px 0 2.5vw 0;
   background: var(--brand);
