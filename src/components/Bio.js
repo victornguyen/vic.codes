@@ -9,7 +9,7 @@ import Column from './Column'
 // TODO: create `Breakout` component with this Container/Column combo?
 const Container = styled.header`
   position: relative;
-  padding: 25px 0 25px 0;
+  padding: 25px 0 2.5vw 0;
   width: 100vw;
   left: 50%;
   right: 50%;
@@ -17,6 +17,9 @@ const Container = styled.header`
   margin-right: -50vw;
   margin-bottom: 20px;
   background: var(--brand);
+  @media (min-width: ${sizes.viewport9}) {
+    padding-bottom: 25px;
+  }
 `
 
 const Avatar = styled(Image)`
