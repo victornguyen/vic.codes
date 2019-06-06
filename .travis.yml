@@ -26,4 +26,9 @@ script:
 
 notifications:
   slack:
-    secure: oABRunrdHYSfGdu3y9wgsyE+uKx/RW36l+Feh/kqgLCMQeRCvY67IVdH1MpMIoA8vR9gSwoAwEMSRxRubFAgXoadKVdNkKAEhYKgitSgCpkFY5nXN3CNxwdu63mD5V/KBjJakkC2RRhRhy+YZYHHXrJfO8r4j/gHAeswE8MPocu0D75bBGQxZHnSKWQjmwnDvWxxs/wPhZAsL6W8baZu+YzWbt+RIvPKvhFBDvfHmrpibR2Y/WH/ux0chFM760q6ZKvmw/XCaG5ZGR/tV1+b/2MS/ehSDTcy5Y62YZT24pKzwg73wWARf4E04WeffiKXtAsf3dYAhknPmukHk4AnIUiwDDAjPLBfGP+n8Ezze7287I0x+2UpzlTGae55SGt1d6EPa/LPxXR1g8hYRwdS5rOR/cjeV+Sr/YxQWZYvRQyyJfL+H9mi+xuklE9SOkzoAqa1u3NZs776hGHr9cMfceZOdPjKrEKq9/0oFtT1UThIkPEUNHvtiXTTC6cbfUybg6VX8mM0zjqCuhZ2F5LB/Ztdo3oPXyKr7ZwG4khtpbXiGuTmPEi7ZclhVOYdGKzOwVfMF9OCDm2sRGY9cr8vbC416J12JBIF8ipFmZ1kRWrYVp6V8uWOMGY+y2g8yPEsWnePNIgQ2ykNGW2ZusRO7mRcx+BzvJgnBjiODUBr4Sc=
+    rooms:
+      - secure: oABRunrdHYSfGdu3y9wgsyE+uKx/RW36l+Feh/kqgLCMQeRCvY67IVdH1MpMIoA8vR9gSwoAwEMSRxRubFAgXoadKVdNkKAEhYKgitSgCpkFY5nXN3CNxwdu63mD5V/KBjJakkC2RRhRhy+YZYHHXrJfO8r4j/gHAeswE8MPocu0D75bBGQxZHnSKWQjmwnDvWxxs/wPhZAsL6W8baZu+YzWbt+RIvPKvhFBDvfHmrpibR2Y/WH/ux0chFM760q6ZKvmw/XCaG5ZGR/tV1+b/2MS/ehSDTcy5Y62YZT24pKzwg73wWARf4E04WeffiKXtAsf3dYAhknPmukHk4AnIUiwDDAjPLBfGP+n8Ezze7287I0x+2UpzlTGae55SGt1d6EPa/LPxXR1g8hYRwdS5rOR/cjeV+Sr/YxQWZYvRQyyJfL+H9mi+xuklE9SOkzoAqa1u3NZs776hGHr9cMfceZOdPjKrEKq9/0oFtT1UThIkPEUNHvtiXTTC6cbfUybg6VX8mM0zjqCuhZ2F5LB/Ztdo3oPXyKr7ZwG4khtpbXiGuTmPEi7ZclhVOYdGKzOwVfMF9OCDm2sRGY9cr8vbC416J12JBIF8ipFmZ1kRWrYVp6V8uWOMGY+y2g8yPEsWnePNIgQ2ykNGW2ZusRO7mRcx+BzvJgnBjiODUBr4Sc=
+    on_start: always
+    template:
+      - "<%{build_url}|Build #%{build_number}> of *%{repository_name}* on `%{branch}` *%{result}* in %{duration}"
+      - "`(<%{compare_url}|%{commit}>) %{commit_subject}`"
