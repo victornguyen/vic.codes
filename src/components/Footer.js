@@ -6,6 +6,7 @@ import sizes from '../styles/sizes'
 
 import Breakout from './Breakout'
 import Column from './Column'
+import AnimatedLink from './AnimatedLink'
 
 const FooterBreakout = styled(Breakout)`
   background: rgba(0, 0, 0, 0.04);
@@ -32,11 +33,16 @@ const Footer = ({ className }) => {
       <FooterColumn>
         © {new Date().getFullYear()} {author}. Over-engineered with
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>, hosted on
+        <AnimatedLink href="https://www.gatsbyjs.org">Gatsby</AnimatedLink>,
+        hosted on
         {` `}
-        <a href="https://www.netlify.com">Netlify</a>, source code on
+        <AnimatedLink href="https://www.netlify.com">Netlify</AnimatedLink>,
+        source code on
         {` `}
-        <a href="https://github.com/victornguyen/vic.codes">GitHub</a>.
+        <AnimatedLink href="https://github.com/victornguyen/vic.codes">
+          GitHub
+        </AnimatedLink>
+        .
       </FooterColumn>
     </FooterBreakout>
   )
