@@ -2,12 +2,14 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
 import { MDXRenderer } from 'gatsby-mdx'
+import { MDXProvider } from '@mdx-js/react'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
 import Image from 'gatsby-image'
 import Breakout from './Breakout'
 import Column from './Column'
+import AnimatedLink from './AnimatedLink'
 
 const BioBreakout = styled(Breakout)`
   margin-bottom: 20px;
@@ -90,7 +92,9 @@ const Bio = () => {
       <Column>
         <Avatar fixed={fixed} alt={author} />
         <Copy>
-          <MDXRenderer>{code.body}</MDXRenderer>
+          <MDXProvider components={{ a: AnimatedLink }}>
+            <MDXRenderer>{code.body}</MDXRenderer>
+          </MDXProvider>
         </Copy>
       </Column>
     </BioBreakout>
