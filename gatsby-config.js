@@ -1,3 +1,5 @@
+const mdxFeed = require('gatsby-mdx/feed')
+
 module.exports = {
   siteMetadata: {
     title: `Victor Nguyen`,
@@ -61,7 +63,10 @@ module.exports = {
         respectDNT: true,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: mdxFeed,
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
