@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { MDXRenderer } from 'gatsby-mdx'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
@@ -48,14 +49,20 @@ const List = styled.div`
 const Lists = () => {
   const { social, hire, skills } = useStaticQuery(graphql`
     query ListsQuery {
-      social: markdownRemark(frontmatter: { title: { eq: "Social" } }) {
-        html
+      social: mdx(frontmatter: { title: { eq: "Social" } }) {
+        code {
+          body
+        }
       }
-      hire: markdownRemark(frontmatter: { title: { eq: "Hire" } }) {
-        html
+      hire: mdx(frontmatter: { title: { eq: "Hire" } }) {
+        code {
+          body
+        }
       }
-      skills: markdownRemark(frontmatter: { title: { eq: "Skills" } }) {
-        html
+      skills: mdx(frontmatter: { title: { eq: "Skills" } }) {
+        code {
+          body
+        }
       }
     }
   `)
@@ -64,15 +71,21 @@ const Lists = () => {
     <Container>
       <Block>
         <Title>Stalk me 🔎</Title>
-        <List dangerouslySetInnerHTML={{ __html: social.html }} />
+        <List>
+          <MDXRenderer>{social.code.body}</MDXRenderer>
+        </List>
       </Block>
       <Block>
         <Title>Hire me 💼</Title>
-        <List dangerouslySetInnerHTML={{ __html: hire.html }} />
+        <List>
+          <MDXRenderer>{hire.code.body}</MDXRenderer>
+        </List>
       </Block>
       <Block>
         <Title>Mad skills 👨‍💻</Title>
-        <List dangerouslySetInnerHTML={{ __html: skills.html }} />
+        <List>
+          <MDXRenderer>{skills.code.body}</MDXRenderer>
+        </List>
       </Block>
     </Container>
   )
