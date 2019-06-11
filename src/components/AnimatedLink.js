@@ -43,7 +43,7 @@ const calc = (x, y, { left, top, width, height }) => [
 const trans = (x, y, s) =>
   `perspective(${PERSPECTIVE}px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
-const AnimatedLink = ({ children, href }) => {
+const AnimatedLink = ({ children, href, ...rest }) => {
   const ref = useRef(null)
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
@@ -60,6 +60,7 @@ const AnimatedLink = ({ children, href }) => {
       }}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{ transform: props.xys.interpolate(trans) }}
+      {...rest}
     >
       {children}
     </Element>
