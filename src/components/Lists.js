@@ -1,11 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { MDXRenderer } from 'gatsby-mdx'
-import { MDXProvider } from '@mdx-js/react'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
-
-import AnimatedLink from './AnimatedLink'
 
 const Container = styled.section`
   display: flex;
@@ -71,28 +68,26 @@ const Lists = () => {
   `)
 
   return (
-    <MDXProvider components={{ a: AnimatedLink }}>
-      <Container>
-        <Block>
-          <Title>Stalk me 🔎</Title>
-          <List>
-            <MDXRenderer>{social.code.body}</MDXRenderer>
-          </List>
-        </Block>
-        <Block>
-          <Title>Hire me 💼</Title>
-          <List>
-            <MDXRenderer>{hire.code.body}</MDXRenderer>
-          </List>
-        </Block>
-        <Block>
-          <Title>Mad skills 👨‍💻</Title>
-          <List>
-            <MDXRenderer>{skills.code.body}</MDXRenderer>
-          </List>
-        </Block>
-      </Container>
-    </MDXProvider>
+    <Container>
+      <Block>
+        <Title>Stalk me 🔎</Title>
+        <List>
+          <MDXRenderer>{social.code.body}</MDXRenderer>
+        </List>
+      </Block>
+      <Block>
+        <Title>Hire me 💼</Title>
+        <List>
+          <MDXRenderer>{hire.code.body}</MDXRenderer>
+        </List>
+      </Block>
+      <Block>
+        <Title>Mad skills 👨‍💻</Title>
+        <List>
+          <MDXRenderer>{skills.code.body}</MDXRenderer>
+        </List>
+      </Block>
+    </Container>
   )
 }
 

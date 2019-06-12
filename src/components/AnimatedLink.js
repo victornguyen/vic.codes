@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useRef } from 'react'
+import React, { Children, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components'
 
-const Element = styled(animated.a)`
+const TextLink = styled(animated.a)`
   display: inline-block;
   text-decoration: none;
   color: var(--brand);
@@ -15,6 +15,15 @@ const Element = styled(animated.a)`
   :hover {
     background: var(--accent);
     color: var(--title-color);
+  }
+`
+
+// TODO: styled to handle img links. Are there other use cases?
+const OtherLink = styled(animated.a)`
+  display: inline-block;
+  border: 5px solid var(--accent);
+  :hover {
+    border-color: var(--brand);
   }
 `
 
@@ -43,6 +52,12 @@ const calc = (x, y, { left, top, width, height }) => [
 const trans = (x, y, s) =>
   `perspective(${PERSPECTIVE}px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
+// Returns true if given React children is a string
+// TODO: test
+const childrenIsText = children =>
+  Children.count(children) === 1 &&
+  typeof Children.toArray(children)[0] === 'string'
+
 const AnimatedLink = ({ children, href, ...rest }) => {
   const ref = useRef(null)
   const [props, set] = useSpring(() => ({
@@ -50,18 +65,22 @@ const AnimatedLink = ({ children, href, ...rest }) => {
     config: SPRING_CONFIG,
   }))
 
+  const isTextLink = childrenIsText(children)
+  const Element = isTextLink ? TextLink : OtherLink
+  const elementProps = isTextLink
+    ? {
+        ref,
+        onMouseMove: ({ clientX: x, clientY: y }) => {
+          const rect = ref.current.getBoundingClientRect()
+          return set({ xys: calc(x, y, rect) })
+        },
+        onMouseLeave: () => set({ xys: [0, 0, 1] }),
+        style: { transform: props.xys.interpolate(trans) },
+      }
+    : {}
+
   return (
-    <Element
-      href={href}
-      ref={ref}
-      onMouseMove={({ clientX: x, clientY: y }) => {
-        const rect = ref.current.getBoundingClientRect()
-        return set({ xys: calc(x, y, rect) })
-      }}
-      onMouseLeave={() => set({ xys: [0, 0, 1] })}
-      style={{ transform: props.xys.interpolate(trans) }}
-      {...rest}
-    >
+    <Element href={href} {...elementProps} {...rest}>
       {children}
     </Element>
   )
