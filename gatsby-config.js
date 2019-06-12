@@ -1,3 +1,5 @@
+const mdxFeed = require('gatsby-mdx/feed')
+
 module.exports = {
   siteMetadata: {
     title: `Victor Nguyen`,
@@ -29,13 +31,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 900,
             },
           },
           {
@@ -44,9 +47,9 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          { resolve: `gatsby-remark-prismjs` },
+          { resolve: `gatsby-remark-copy-linked-files` },
+          { resolve: `gatsby-remark-smartypants` },
         ],
       },
     },
@@ -60,7 +63,10 @@ module.exports = {
         respectDNT: true,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: mdxFeed,
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

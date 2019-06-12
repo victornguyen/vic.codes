@@ -3,6 +3,8 @@
   --text: #444;
   --text-light: #999;
   --brand: hotpink;
+  --brand-dark: #e663a3;
+  --brand-light: #fd94c7;
   --accent: gold;
   --title-color: #333;
   --title-size: calc(16px + 1vw);
@@ -18,19 +20,4 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Rubik', sans-serif;
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--brand);
-  padding: 0 0.3em;
-  background: rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.2em;
-}
-
-a:hover {
-  background: var(--accent);
-  color: var(--title-color);
 }

@@ -39,7 +39,7 @@ Post.propTypes = {
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query BlogQuery {
-      allMarkdownRemark(
+      allMdx(
         filter: { fileAbsolutePath: { regex: "/blog/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -61,7 +61,7 @@ const Blog = () => {
     }
   `)
 
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMdx.edges
 
   return (
     <Container>

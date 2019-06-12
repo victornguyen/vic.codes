@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { MDXProvider } from '@mdx-js/react'
 import styled from 'styled-components'
 
 import Column from './Column'
 import Footer from './Footer'
+import AnimatedLink from './AnimatedLink'
 
 const LayoutColumn = styled(Column)`
   display: flex;
@@ -17,10 +19,12 @@ const LayoutFooter = styled(Footer)`
 
 const Layout = ({ children }) => {
   return (
-    <LayoutColumn>
-      <main>{children}</main>
-      <LayoutFooter />
-    </LayoutColumn>
+    <MDXProvider components={{ a: AnimatedLink }}>
+      <LayoutColumn>
+        <main>{children}</main>
+        <LayoutFooter />
+      </LayoutColumn>
+    </MDXProvider>
   )
 }
 

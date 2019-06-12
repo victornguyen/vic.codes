@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
+import { MDXRenderer } from 'gatsby-mdx'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
@@ -12,6 +13,11 @@ const BioBreakout = styled(Breakout)`
   margin-bottom: 20px;
   padding: 25px 0 2.5vw 0;
   background: var(--brand);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--brand) 70%,
+    var(--brand-light)
+  );
   @media (min-width: ${sizes.viewport9}) {
     padding-bottom: 25px;
   }
@@ -71,22 +77,26 @@ const Bio = () => {
           }
         }
       }
-      copy: markdownRemark(frontmatter: { title: { eq: "Bio" } }) {
+      copy: mdx(frontmatter: { title: { eq: "Bio" } }) {
         id
-        html
+        code {
+          body
+        }
       }
     }
   `)
 
   const { author } = useSiteMetadata()
   const { fixed } = data.avatar.childImageSharp
-  const { html } = data.copy
+  const { code } = data.copy
 
   return (
     <BioBreakout type="header">
       <Column>
         <Avatar fixed={fixed} alt={author} />
-        <Copy dangerouslySetInnerHTML={{ __html: html }} />
+        <Copy>
+          <MDXRenderer>{code.body}</MDXRenderer>
+        </Copy>
       </Column>
     </BioBreakout>
   )
