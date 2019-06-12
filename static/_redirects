@@ -1,2 +1,12 @@
 # Redirect default Netlify subdomain to primary domain
 https://vic-codes.netlify.com/* https://vic.codes/:splat 301!
+
+# Redirect domain aliases to primary domain
+https://vicnguyen.com/* https://vic.codes/:splat 301!
+https://www.vicnguyen.com/* https://vic.codes/:splat 301!
+https://victornguyen.net/* https://vic.codes/:splat 301!
+https://www.victornguyen.net/* https://vic.codes/:splat 301!
+https://victornguyen.dev/* https://vic.codes/:splat 301!
+https://www.victornguyen.dev/* https://vic.codes/:splat 301!
+https://victornguyen.org/* https://vic.codes/:splat 301!
+https://www.victornguyen.org/* https://vic.codes/:splat 301!
