@@ -3,6 +3,8 @@
   --text: #444;
   --text-light: #999;
   --brand: hotpink;
+  --brand-dark: #e663a3;
+  --brand-light: #fd94c7;
   --accent: gold;
   --title-color: #333;
   --title-size: calc(16px + 1vw);

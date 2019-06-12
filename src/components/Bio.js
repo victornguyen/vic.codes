@@ -13,6 +13,11 @@ const BioBreakout = styled(Breakout)`
   margin-bottom: 20px;
   padding: 25px 0 2.5vw 0;
   background: var(--brand);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--brand) 70%,
+    var(--brand-light)
+  );
   @media (min-width: ${sizes.viewport9}) {
     padding-bottom: 25px;
   }
