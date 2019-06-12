@@ -86,7 +86,6 @@ const AnimatedLink = ({ children, href, ...rest }) => {
   )
 }
 
-// TODO: make the styles extendable with className
 AnimatedLink.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string.isRequired,
