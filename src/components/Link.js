@@ -9,9 +9,11 @@ const Link = forwardRef(
   ({ children, to, activeClassName, partiallyActive, ...rest }, ref) => {
     // Internal links start with one slash, anything else is external
     const isInternal = /^\/(?!\/)/.test(to)
+    // Assets are links to static assets like PDFs and images
+    const isAsset = /^.+\.(pdf|jpg)$/i.test(to)
 
-    // Use Gatsby Link for internal links, and <a> for others
-    if (isInternal) {
+    // Use Gatsby Link for internal page links, and <a> for others
+    if (isInternal && !isAsset) {
       return (
         <GatsbyLink
           ref={ref}
