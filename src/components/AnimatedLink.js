@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { Children, useRef } from 'react'
+import React, { Children, createRef } from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
+import Link from './Link'
 import styled from 'styled-components'
 
-const TextLink = styled(animated.a)`
+const TextLink = styled(animated(Link))`
   display: inline-block;
   text-decoration: none;
   color: var(--brand);
@@ -19,7 +20,7 @@ const TextLink = styled(animated.a)`
 `
 
 // TODO: styled to handle img links. Are there other use cases?
-const OtherLink = styled(animated.a)`
+const OtherLink = styled(animated(Link))`
   display: inline-block;
   border: 5px solid var(--accent);
   :hover {
@@ -59,7 +60,7 @@ const childrenIsText = children =>
   typeof Children.toArray(children)[0] === 'string'
 
 const AnimatedLink = ({ children, href, ...rest }) => {
-  const ref = useRef(null)
+  const ref = createRef()
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: SPRING_CONFIG,
@@ -80,7 +81,7 @@ const AnimatedLink = ({ children, href, ...rest }) => {
     : {}
 
   return (
-    <Element href={href} {...elementProps} {...rest}>
+    <Element to={href} {...elementProps} {...rest}>
       {children}
     </Element>
   )
