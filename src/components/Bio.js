@@ -24,8 +24,9 @@ const BioBreakout = styled(Breakout)`
 `
 
 const Avatar = styled(Image)`
-  // TODO: is there a better way?
-  display: block !important;
+  &[style] {
+    display: block !important;
+  }
   margin-left: auto;
   margin-right: auto;
 
@@ -35,7 +36,9 @@ const Avatar = styled(Image)`
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
   @media (min-width: ${sizes.viewport7}) {
-    position: fixed !important;
+    &[style] {
+      position: absolute !important;
+    }
     top: 45px;
     margin-left: -110px;
   }
