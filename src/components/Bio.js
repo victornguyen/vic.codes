@@ -45,7 +45,7 @@ const Avatar = styled(Image)`
 `
 
 const Copy = styled.section`
-  font-size: var(--title-size);
+  font-size: calc(16px + 1vw);
   line-height: 1.5;
   color: #fff;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
@@ -56,6 +56,7 @@ const Copy = styled.section`
       color: #fff;
     }
   }
+
   a {
     color: var(--accent);
     background: rgba(0, 0, 0, 0.1);
@@ -67,6 +68,10 @@ const Copy = styled.section`
       text-shadow: none;
       border-color: transparent;
     }
+  }
+
+  @media (min-width: 992px) {
+    font-size: 26px;
   }
 `
 

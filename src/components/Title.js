@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 const createNode = size =>
   styled[`h${size}`]`
-    font-size: var(--title-size);
     margin-bottom: 0.6em;
   `
 
