@@ -1,13 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery, Link } from 'gatsby'
+import Title from './Title'
 import styled from 'styled-components'
 
 const Container = styled.section``
-
-const Title = styled.h2`
-  font-size: 26px;
-`
 
 const PostTitle = styled.h3`
   font-size: 22px;

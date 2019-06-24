@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { MDXRenderer } from 'gatsby-mdx'
 import styled from 'styled-components'
+import Title from './Title'
 import sizes from '../styles/sizes'
 
 const Container = styled.section`
@@ -24,11 +25,6 @@ const Block = styled.article`
   @media (min-width: ${sizes.viewport7}) {
     width: 33%;
   }
-`
-
-const Title = styled.h2`
-  font-size: var(--title-size);
-  margin-bottom: 0.6em;
 `
 
 const List = styled.div`
