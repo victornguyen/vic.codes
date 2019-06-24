@@ -32,7 +32,6 @@ const OtherLink = styled(animated(Link))`
 const PERSPECTIVE = 200
 const ROTATE_MODIFIER_X = 0.055
 const ROTATE_MODIFIER_Y = 0.035
-const SCALE_TO = 1.15
 const SPRING_CONFIG = {
   mass: 1,
   tension: 1000,
@@ -43,10 +42,10 @@ const SPRING_CONFIG = {
 // These values control the amount of rotation to apply based on the cursor
 // position (x, y) relative to the element's position (left, top) and
 // dimensions (width, height).
-const calc = (x, y, { left, top, width, height }) => [
+const calc = (x, y, { left, top, width, height }, scaleTo) => [
   -(((y - top) / height) * 100 - 50) / (height * ROTATE_MODIFIER_X),
   (((x - left) / width) * 100 - 50) / (width * ROTATE_MODIFIER_Y),
-  SCALE_TO,
+  scaleTo,
 ]
 
 // Return a css transform string to interpolate
@@ -59,7 +58,7 @@ const childrenIsText = children =>
   Children.count(children) === 1 &&
   typeof Children.toArray(children)[0] === 'string'
 
-const AnimatedLink = ({ children, href, ...rest }) => {
+const AnimatedLink = ({ children, href, scaleTo, ...rest }) => {
   const ref = createRef()
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
@@ -73,7 +72,7 @@ const AnimatedLink = ({ children, href, ...rest }) => {
         ref,
         onMouseMove: ({ clientX: x, clientY: y }) => {
           const rect = ref.current.getBoundingClientRect()
-          return set({ xys: calc(x, y, rect) })
+          return set({ xys: calc(x, y, rect, scaleTo) })
         },
         onMouseLeave: () => set({ xys: [0, 0, 1] }),
         style: { transform: props.xys.interpolate(trans) },
@@ -90,6 +89,11 @@ const AnimatedLink = ({ children, href, ...rest }) => {
 AnimatedLink.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string.isRequired,
+  scaleTo: PropTypes.number,
+}
+
+AnimatedLink.defaultProps = {
+  scaleTo: 1.15,
 }
 
 export default AnimatedLink
