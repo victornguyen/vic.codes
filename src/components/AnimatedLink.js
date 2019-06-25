@@ -42,11 +42,14 @@ const SPRING_CONFIG = {
 // These values control the amount of rotation to apply based on the cursor
 // position (x, y) relative to the element's position (left, top) and
 // dimensions (width, height).
-const calc = (x, y, { left, top, width, height }, scaleTo) => [
-  -(((y - top) / height) * 100 - 50) / (height * ROTATE_MODIFIER_X),
-  (((x - left) / width) * 100 - 50) / (width * ROTATE_MODIFIER_Y),
-  scaleTo,
-]
+const calc = (x, y, { left, top, width, height }, scaleTo, enablePerspective) =>
+  enablePerspective
+    ? [
+        -(((y - top) / height) * 100 - 50) / (height * ROTATE_MODIFIER_X),
+        (((x - left) / width) * 100 - 50) / (width * ROTATE_MODIFIER_Y),
+        scaleTo,
+      ]
+    : [0, 0, scaleTo]
 
 // Return a css transform string to interpolate
 const trans = (x, y, s) =>
@@ -58,7 +61,13 @@ const childrenIsText = children =>
   Children.count(children) === 1 &&
   typeof Children.toArray(children)[0] === 'string'
 
-const AnimatedLink = ({ children, href, scaleTo, ...rest }) => {
+const AnimatedLink = ({
+  children,
+  href,
+  scaleTo,
+  enablePerspective,
+  ...rest
+}) => {
   const ref = createRef()
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
@@ -72,7 +81,7 @@ const AnimatedLink = ({ children, href, scaleTo, ...rest }) => {
         ref,
         onMouseMove: ({ clientX: x, clientY: y }) => {
           const rect = ref.current.getBoundingClientRect()
-          return set({ xys: calc(x, y, rect, scaleTo) })
+          return set({ xys: calc(x, y, rect, scaleTo, enablePerspective) })
         },
         onMouseLeave: () => set({ xys: [0, 0, 1] }),
         style: { transform: props.xys.interpolate(trans) },
@@ -88,11 +97,13 @@ const AnimatedLink = ({ children, href, scaleTo, ...rest }) => {
 
 AnimatedLink.propTypes = {
   children: PropTypes.node,
+  enablePerspective: PropTypes.bool,
   href: PropTypes.string.isRequired,
   scaleTo: PropTypes.number,
 }
 
 AnimatedLink.defaultProps = {
+  enablePerspective: true,
   scaleTo: 1.15,
 }
 
