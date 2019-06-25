@@ -1,23 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Title from './Title'
+import AnimatedLink from './AnimatedLink'
 import styled from 'styled-components'
 
 const Container = styled.section``
 
-const PostTitle = styled.h3`
-  font-size: 22px;
+const PostTitle = styled(Title)`
   font-weight: normal;
-  margin: 0;
+  &&& {
+    margin: 0;
+  }
 `
 
 const Post = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug
   return (
-    <div key={node.fields.slug}>
-      <PostTitle>
-        <Link to={node.fields.slug}>{title}</Link>
+    <article key={node.fields.slug}>
+      <PostTitle size="3">
+        <AnimatedLink scaleTo={1.08} href={node.fields.slug}>
+          {title}
+        </AnimatedLink>
       </PostTitle>
       <small>{node.frontmatter.date}</small>
       <p
@@ -25,7 +29,7 @@ const Post = ({ node }) => {
           __html: node.frontmatter.description || node.excerpt,
         }}
       />
-    </div>
+    </article>
   )
 }
 
