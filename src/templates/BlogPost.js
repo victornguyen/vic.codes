@@ -28,6 +28,9 @@ const Body = styled.main`
       font-size: 20px;
     }
   }
+  li {
+    margin-bottom: 0.8em;
+  }
 `
 
 class BlogPostTemplate extends React.Component {
