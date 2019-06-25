@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-mdx'
 import styled from 'styled-components'
+import sizes from '../styles/sizes'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
@@ -16,6 +17,19 @@ const List = styled.ul`
   padding: 0;
 `
 
+const Body = styled.main`
+  p,
+  li {
+    font-size: calc(10px + 1vw);
+  }
+  @media (min-width: ${sizes.viewport9}) {
+    p,
+    li {
+      font-size: 20px;
+    }
+  }
+`
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
@@ -27,11 +41,12 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
-        <hr />
-        <Bio />
+
+        <Body>
+          <h1>{post.frontmatter.title}</h1>
+          <p>{post.frontmatter.date}</p>
+          <MDXRenderer>{post.code.body}</MDXRenderer>
+        </Body>
 
         <List>
           <li>
@@ -49,6 +64,8 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </List>
+
+        <Bio />
       </Layout>
     )
   }

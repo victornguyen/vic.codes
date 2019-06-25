@@ -16,7 +16,9 @@ body {
 }
 
 h1 {
-  font-size: calc(20px + 1vw);
+  font-size: calc(20px + 2vw);
+  letter-spacing: calc(-1 * 0.1vw);
+  line-height: calc(26px + 2vw);
 }
 
 h2 {
@@ -24,23 +26,25 @@ h2 {
 }
 
 h3 {
-  font-size: calc(14px + 1vw);
-}
-
-h4 {
-  font-size: calc(13px + 1vw);
-}
-
-h5 {
   font-size: calc(12px + 1vw);
 }
 
-h6 {
+h4 {
   font-size: calc(10px + 1vw);
+}
+
+h5 {
+  font-size: calc(8px + 1vw);
+}
+
+h6 {
+  font-size: calc(6px + 1vw);
 }
 @media (min-width: 992px) {
   h1 {
-    font-size: 32px;
+    font-size: 40px;
+    letter-spacing: -1px;
+    line-height: 1.2;
   }
   h2 {
     font-size: 26px;
