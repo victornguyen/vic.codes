@@ -30,7 +30,7 @@ const OtherLink = styled(animated(Link))`
 
 // Static values that control the hover animation
 const PERSPECTIVE = 200
-const ROTATE_MODIFIER_X = 0.055
+const ROTATE_MODIFIER_X = 0.02
 const ROTATE_MODIFIER_Y = 0.035
 const SPRING_CONFIG = {
   mass: 1,
@@ -45,7 +45,7 @@ const SPRING_CONFIG = {
 const calc = (x, y, { left, top, width, height }, scaleTo, enablePerspective) =>
   enablePerspective
     ? [
-        -(((y - top) / height) * 100 - 50) / (height * ROTATE_MODIFIER_X),
+        -(((y - top) / height) * 100 - 50) / (width * ROTATE_MODIFIER_X),
         (((x - left) / width) * 100 - 50) / (width * ROTATE_MODIFIER_Y),
         scaleTo,
       ]
