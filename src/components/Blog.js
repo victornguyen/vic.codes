@@ -19,7 +19,7 @@ const Post = ({ node }) => {
   return (
     <article key={node.fields.slug}>
       <PostTitle size="3">
-        <AnimatedLink scaleTo={1.08} href={node.fields.slug}>
+        <AnimatedLink href={node.fields.slug} scaleTo={1.06}>
           {title}
         </AnimatedLink>
       </PostTitle>
