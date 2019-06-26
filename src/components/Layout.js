@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Column from './Column'
 import Footer from './Footer'
 import AnimatedLink from './AnimatedLink'
+import Blockquote from './Blockquote'
 
 const LayoutColumn = styled(Column)`
   display: flex;
@@ -19,7 +20,7 @@ const LayoutFooter = styled(Footer)`
 
 const Layout = ({ children }) => {
   return (
-    <MDXProvider components={{ a: AnimatedLink }}>
+    <MDXProvider components={{ a: AnimatedLink, blockquote: Blockquote }}>
       <LayoutColumn>
         <main>{children}</main>
         <LayoutFooter />
