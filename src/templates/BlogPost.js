@@ -21,6 +21,7 @@ const Body = styled.main`
   p,
   li {
     font-size: calc(10px + 1vw);
+    font-family: Helvetica, Arial, sans-serif;
   }
   @media (min-width: ${sizes.viewport9}) {
     p,
