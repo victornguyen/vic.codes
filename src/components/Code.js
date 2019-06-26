@@ -16,6 +16,17 @@ const CodeBreakout = styled(Breakout)`
   }
 `
 
+const Pre = styled.pre`
+  margin-left: -2em;
+`
+
+const LineNumber = styled.span`
+  display: inline-block;
+  width: 2em;
+  opacity: 0.1;
+  user-select: none;
+`
+
 const Code = ({ codeString, language }) => (
   <CodeBreakout>
     <Column>
@@ -26,15 +37,20 @@ const Code = ({ codeString, language }) => (
         theme={theme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
+          <Pre className={className} style={style}>
             {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
+              <div
+                key={i}
+                {...getLineProps({ line, key: i })}
+                style={{ position: 'relative' }}
+              >
+                <LineNumber>{i + 1}</LineNumber>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
                 ))}
               </div>
             ))}
-          </pre>
+          </Pre>
         )}
       </Highlight>
     </Column>
