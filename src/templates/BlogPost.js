@@ -23,14 +23,31 @@ const Body = styled.main`
     font-size: calc(10px + 1vw);
     font-family: Helvetica, Arial, sans-serif;
   }
+
+  li {
+    margin-bottom: 0.8em;
+  }
+
+  pre {
+    font-size: calc(6px + 1vw);
+    overflow: auto;
+    white-space: pre;
+  }
+
+  pre,
+  code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+      'Courier New', monospace;
+  }
+
   @media (min-width: ${sizes.viewport9}) {
     p,
     li {
       font-size: 20px;
     }
-  }
-  li {
-    margin-bottom: 0.8em;
+    pre {
+      font-size: 16px;
+    }
   }
 `
 
