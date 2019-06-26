@@ -16,32 +16,30 @@ const CodeBreakout = styled(Breakout)`
   }
 `
 
-const Code = ({ codeString, language }) => {
-  return (
-    <CodeBreakout>
-      <Column>
-        <Highlight
-          {...defaultProps}
-          code={codeString}
-          language={language}
-          theme={theme}
-        >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={className} style={style}>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
-      </Column>
-    </CodeBreakout>
-  )
-}
+const Code = ({ codeString, language }) => (
+  <CodeBreakout>
+    <Column>
+      <Highlight
+        {...defaultProps}
+        code={codeString}
+        language={language}
+        theme={theme}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    </Column>
+  </CodeBreakout>
+)
 
 Code.propTypes = {
   codeString: PropTypes.string,
