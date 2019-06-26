@@ -36,11 +36,11 @@ The Big Oxmox advised her not to do so, because there were thousands of bad
 Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
 didn’t listen.
 
-> Far far away, behind the word mountains, far from the countries Vokalia and
-> Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-> right at the coast of the Semantics, a large language ocean.
+> Quit. Don't quit. Noodles. Don't noodles. You are too concerned with what was
+> and what will be. There's a saying: "Yesterday is history, tomorrow is a
+> mystery, but today is a gift. That is why it is called the "present".
 >
-> Victor Nguyen
+> Oogway
 
 The Big Oxmox advised her not to do so, because there were thousands of bad
 Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
