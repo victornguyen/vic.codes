@@ -31,7 +31,7 @@ const Avatar = styled(Image)`
   margin-right: auto;
 
   min-width: 80px;
-  border-radius: 30%;
+  border-radius: 50%;
   border: 6px solid var(--accent);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
