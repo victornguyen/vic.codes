@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/dracula'
+import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
@@ -17,49 +17,89 @@ const CodeBreakout = styled(Breakout)`
 `
 
 const Pre = styled.pre`
-  margin-left: -2em;
+  margin-left: -2.5em;
 `
 
 const LineNumber = styled.span`
   display: inline-block;
-  width: 2em;
+  width: 2.5em;
+  padding-left: 0.5em;
   opacity: 0.1;
   user-select: none;
 `
 
-const Code = ({ codeString, language }) => (
-  <CodeBreakout>
-    <Column>
-      <Highlight
-        {...defaultProps}
-        code={codeString}
-        language={language}
-        theme={theme}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <Pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div
-                key={i}
-                {...getLineProps({ line, key: i })}
-                style={{ position: 'relative' }}
-              >
-                <LineNumber>{i + 1}</LineNumber>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </Pre>
-        )}
-      </Highlight>
-    </Column>
-  </CodeBreakout>
-)
+const Line = styled.div`
+  background: ${props => (props.isHighlighted ? 'var(--highlighted)' : 'none')};
+  ${LineNumber} {
+    ${props =>
+      props.isHighlighted &&
+      `
+      color: ${theme.plain.backgroundColor};
+      opacity: 1;
+      `}
+  }
+`
+
+// Regular expression to parse line ranges from code-fence metastrings
+const RE = /{([\d,-]+)}/
+
+// Returns a function that tests whether a given line should be highlighted
+// using data parsed from a code-fence metastring ("{2,5,8-10}").
+// Stolen wholesale from @kentcdodds :)
+function calculateLinesToHighlight(meta) {
+  if (RE.test(meta)) {
+    const lineNumbers = RE.exec(meta)[1]
+      .split(',')
+      .map(v => v.split('-').map(y => parseInt(y, 10)))
+    return index => {
+      const lineNumber = index + 1
+      const inRange = lineNumbers.some(([start, end]) =>
+        end ? lineNumber >= start && lineNumber <= end : lineNumber === start
+      )
+      return inRange
+    }
+  } else {
+    return () => false
+  }
+}
+
+const Code = ({ codeString, language, metastring }) => {
+  const shouldHighlightLine = calculateLinesToHighlight(metastring)
+  return (
+    <CodeBreakout>
+      <Column>
+        <Highlight
+          {...defaultProps}
+          code={codeString}
+          language={language}
+          theme={theme}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <Pre className={className} style={style}>
+              {tokens.map((line, i) => (
+                <Line
+                  key={i}
+                  {...getLineProps({ line, key: i })}
+                  isHighlighted={shouldHighlightLine(i)}
+                >
+                  <LineNumber>{i + 1}</LineNumber>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </Line>
+              ))}
+            </Pre>
+          )}
+        </Highlight>
+      </Column>
+    </CodeBreakout>
+  )
+}
 
 Code.propTypes = {
   codeString: PropTypes.string,
   language: PropTypes.string,
+  metastring: PropTypes.string,
 }
 
 export default Code

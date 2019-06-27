@@ -14,11 +14,12 @@ The Big Oxmox advised her not to do so, because there were thousands of bad
 Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
 didn’t listen.
 
-```jsx
+```jsx {3,10}
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
 
+// This isn't a real comment
 const Blockquote = ({ children, ...rest }) => {
   return (
     <QuoteBreakout>

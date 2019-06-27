@@ -7,6 +7,7 @@
   --brand-light: #fd94c7;
   --accent: gold;
   --title-color: #333;
+  --highlighted: rgba(253, 108, 179, 0.1);
 }
 
 body {
