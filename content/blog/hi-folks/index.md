@@ -31,6 +31,12 @@ const Blockquote = ({ children, ...rest }) => {
 }
 ```
 
+And run this:
+
+```bash
+npm i -g gatsby-cli
+```
+
 ## So it's a quote
 
 The Big Oxmox advised her not to do so, because there were thousands of bad

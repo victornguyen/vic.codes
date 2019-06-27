@@ -20,17 +20,19 @@ const Pre = styled.pre`
   margin-left: -2.5em;
 `
 
-const LineNumber = styled.span`
+const Gutter = styled.span`
   display: inline-block;
   width: 2.5em;
   padding-left: 0.5em;
+  padding-right: 1em;
+  text-align: right;
   opacity: 0.1;
   user-select: none;
 `
 
 const Line = styled.div`
   background: ${props => (props.isHighlighted ? 'var(--highlighted)' : 'none')};
-  ${LineNumber} {
+  ${Gutter} {
     ${props =>
       props.isHighlighted &&
       `
@@ -82,7 +84,7 @@ const Code = ({ codeString, language, metastring }) => {
                   {...getLineProps({ line, key: i })}
                   isHighlighted={shouldHighlightLine(i)}
                 >
-                  <LineNumber>{i + 1}</LineNumber>
+                  <Gutter>{language === 'bash' ? '$' : i + 1}</Gutter>
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}
