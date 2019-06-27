@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-mdx'
+// TODO: centralise prism theme selection? imported here and in Code
+import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
@@ -28,16 +30,24 @@ const Body = styled.main`
     margin-bottom: 0.8em;
   }
 
+  pre,
+  code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+      'Courier New', monospace;
+  }
+
   pre {
     font-size: calc(6px + 1vw);
     overflow: auto;
     white-space: pre;
   }
 
-  pre,
   code {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace;
+    font-size: 0.85em;
+    padding: 0.2em 0.4em 0.25em;
+    border-radius: 0.2em;
+    background: ${theme.plain.backgroundColor};
+    color: ${theme.plain.color};
   }
 
   @media (min-width: ${sizes.viewport9}) {
