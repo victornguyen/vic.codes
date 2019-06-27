@@ -4,6 +4,15 @@ date: "2015-05-28T22:40:32.169Z"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 
+So a great man once said:
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Racing
+my <a href="https://twitter.com/Deliveroo?ref_src=twsrc%5Etfw">@Deliveroo</a>
+rider back to my apartment. Hope I make it. 🚲 vs 🚋</p>&mdash; Victor Nguyen
+(@victornguyen) <a
+href="https://twitter.com/victornguyen/status/831807189777936384?ref_src=twsrc%5Etfw">February
+15, 2017</a></blockquote>
+
 Far far away, behind the word mountains, far from the countries Vokalia and
 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
 right at the `React.coast()` of the Semantics, a large language ocean.

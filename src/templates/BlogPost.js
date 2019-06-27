@@ -21,7 +21,8 @@ const List = styled.ul`
 
 const Body = styled.main`
   p,
-  li {
+  li,
+  blockquote {
     font-size: calc(10px + 1vw);
     font-family: Helvetica, Arial, sans-serif;
   }
@@ -52,7 +53,8 @@ const Body = styled.main`
 
   @media (min-width: ${sizes.viewport9}) {
     p,
-    li {
+    li,
+    blockquote {
       font-size: 20px;
     }
     pre {

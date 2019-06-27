@@ -63,3 +63,7 @@ h6 {
     font-size: 16px;
   }
 }
+
+.twitter-tweet-rendered {
+  margin: 2rem auto !important;
+}
