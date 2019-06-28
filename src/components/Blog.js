@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import Title from './Title'
+import ListTitle from './ListTitle'
 import AnimatedLink from './AnimatedLink'
 import styled from 'styled-components'
 
@@ -66,7 +67,7 @@ const Blog = () => {
 
   return (
     <Container>
-      <Title>Writing ✍</Title>
+      <ListTitle>Writing ✍</ListTitle>
       {posts.map(({ node }) => (
         <Post key={node.id} node={node} />
       ))}

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { MDXRenderer } from 'gatsby-mdx'
 import styled from 'styled-components'
-import Title from './Title'
+import ListTitle from './ListTitle'
 import sizes from '../styles/sizes'
 
 const Container = styled.section`
@@ -66,19 +66,19 @@ const Lists = () => {
   return (
     <Container>
       <Block>
-        <Title>Stalk me 🔎</Title>
+        <ListTitle>Stalk me 🔎</ListTitle>
         <List>
           <MDXRenderer>{social.code.body}</MDXRenderer>
         </List>
       </Block>
       <Block>
-        <Title>Hire me 💼</Title>
+        <ListTitle>Hire me 💼</ListTitle>
         <List>
           <MDXRenderer>{hire.code.body}</MDXRenderer>
         </List>
       </Block>
       <Block>
-        <Title>Mad skills 👨‍💻</Title>
+        <ListTitle>Mad skills 👨‍💻</ListTitle>
         <List>
           <MDXRenderer>{skills.code.body}</MDXRenderer>
         </List>

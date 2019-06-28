@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const createNode = size =>
   styled[`h${size}`]`
+    margin-top: 1.5em;
     margin-bottom: 0.6em;
   `
 
