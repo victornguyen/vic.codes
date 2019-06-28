@@ -11,6 +11,10 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
+// HAX: these constants don't appear to be intended to be consumed outside of
+// gatsby-remark-images' internals. Prepare for breaking changes.
+import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
+
 const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -49,6 +53,28 @@ const Body = styled.main`
     border-radius: 0.2em;
     background: ${theme.plain.backgroundColor};
     color: ${theme.plain.color};
+  }
+
+  // TODO: these are largely the same styles as Breakout, find a way to DRY out
+  .${imageWrapperClass} {
+    width: 100vw !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    @media (min-width: ${sizes.viewport4}) {
+      width: auto !important;
+      left: auto !important;
+      right: auto !important;
+      margin-left: -2em !important;
+      margin-right: -2em !important;
+    }
+  }
+
+  .${imageClass} {
+    @media (min-width: ${sizes.viewport4}) {
+      border-radius: 0.3em;
+    }
   }
 
   @media (min-width: ${sizes.viewport9}) {
