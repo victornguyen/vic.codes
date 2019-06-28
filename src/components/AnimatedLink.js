@@ -22,9 +22,11 @@ const TextLink = styled(animated(Link))`
 // TODO: styled to handle img links. Are there other use cases?
 const OtherLink = styled(animated(Link))`
   display: inline-block;
-  border: 5px solid var(--accent);
+  border-radius: 3px;
+  border: 5px solid var(--brand);
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
   :hover {
-    border-color: var(--brand);
+    border-color: var(--accent);
   }
 `
 
