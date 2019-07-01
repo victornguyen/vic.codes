@@ -24,7 +24,11 @@ const Header = styled(Breakout)`
   background: var(--brand);
   color: #fff;
   padding: 0.5em 0;
+  font-size: calc(6px + 1vw);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  @media (min-width: 992px) {
+    font-size: 16px;
+  }
 `
 
 const Heading = styled(Title)`
@@ -127,7 +131,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <AnimatedLink href="/" alternatestyle="true">
             {author}
           </AnimatedLink>{' '}
-          written on {post.frontmatter.date}.
+          published on {post.frontmatter.date}.
         </Column>
       </Header>
 
