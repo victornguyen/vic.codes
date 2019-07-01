@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 import Column from './Column'
 import Footer from './Footer'
+import Bio from './Bio'
 import AnimatedLink from './AnimatedLink'
 import Blockquote from './Blockquote'
 import Code from './Code'
@@ -16,7 +17,7 @@ const LayoutColumn = styled(Column)`
   height: 100vh;
 `
 
-const LayoutFooter = styled(Footer)`
+const LayoutFooter = styled.footer`
   margin-top: auto;
 `
 
@@ -35,12 +36,15 @@ const mdxComponents = {
   },
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children, showBioFooter }) => {
   return (
     <MDXProvider components={mdxComponents}>
       <LayoutColumn>
         <main>{children}</main>
-        <LayoutFooter />
+        <LayoutFooter>
+          {showBioFooter && <Bio inFooter />}
+          <Footer />
+        </LayoutFooter>
       </LayoutColumn>
     </MDXProvider>
   )
@@ -48,6 +52,11 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node,
+  showBioFooter: PropTypes.bool,
+}
+
+Layout.defaultProps = {
+  showBioFooter: false,
 }
 
 export default Layout

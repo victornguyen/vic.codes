@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
 import { MDXProvider } from '@mdx-js/react'
@@ -14,8 +15,9 @@ import AnimatedLink from './AnimatedLink'
 const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
 
 const BioBreakout = styled(Breakout)`
-  margin-bottom: 20px;
-  padding: 25px 0 2.5vw 0;
+  margin-top: ${props => (props.inFooter ? `50px` : `0`)};
+  margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
+  padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
   background: var(--brand);
   background-image: linear-gradient(
     to bottom right,
@@ -23,7 +25,7 @@ const BioBreakout = styled(Breakout)`
     var(--brand-light)
   );
   @media (min-width: ${sizes.viewport9}) {
-    padding-bottom: 25px;
+    padding-bottom: ${props => (props.inFooter ? `15px` : `25px`)};
   }
 `
 
@@ -43,13 +45,13 @@ const Avatar = styled(Image)`
     &[style] {
       position: absolute !important;
     }
-    top: 45px;
+    top: ${props => (props.inFooter ? `35px` : `45px`)};
     margin-left: -110px;
   }
 `
 
 const Copy = styled.section`
-  font-size: calc(16px + 1vw);
+  font-size: calc(${props => (props.inFooter ? `12px` : `16px`)} + 1vw);
   line-height: 1.5;
   color: #fff;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
@@ -62,11 +64,11 @@ const Copy = styled.section`
   }
 
   @media (min-width: 992px) {
-    font-size: 26px;
+    font-size: ${props => (props.inFooter ? `22px` : `26px`)};
   }
 `
 
-const Bio = () => {
+const Bio = ({ inFooter }) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/face.jpg/" }) {
@@ -90,10 +92,10 @@ const Bio = () => {
   const { code } = data.copy
 
   return (
-    <BioBreakout type="header">
+    <BioBreakout type="header" inFooter={inFooter}>
       <Column>
-        <Avatar fixed={fixed} alt={author} />
-        <Copy>
+        <Avatar fixed={fixed} alt={author} inFooter={inFooter} />
+        <Copy inFooter={inFooter}>
           <MDXProvider components={{ a: BioLink }}>
             <MDXRenderer>{code.body}</MDXRenderer>
           </MDXProvider>
@@ -101,6 +103,14 @@ const Bio = () => {
       </Column>
     </BioBreakout>
   )
+}
+
+Bio.propTypes = {
+  inFooter: PropTypes.bool,
+}
+
+Bio.defaultProps = {
+  inFooter: false,
 }
 
 export default Bio

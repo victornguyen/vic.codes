@@ -8,7 +8,6 @@ import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
-import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import Title from '../components/Title'
 import Breakout from '../components/Breakout'
@@ -119,12 +118,11 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
 
   return (
-    <Layout location={location}>
+    <Layout location={location} showBioFooter>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-
       <Header>
         <Column>
           ✍ Hey, it&rsquo;s a blog post by{' '}
@@ -134,14 +132,10 @@ const BlogPostTemplate = ({ data, location }) => {
           published on {post.frontmatter.date}.
         </Column>
       </Header>
-
       <Heading size="1">{post.frontmatter.title}</Heading>
-
       <Body>
         <MDXRenderer>{post.code.body}</MDXRenderer>
       </Body>
-
-      <Bio />
     </Layout>
   )
 }
