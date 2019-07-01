@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
 import { MDXRenderer } from 'gatsby-mdx'
 // TODO: centralise prism theme selection? imported here and in Code
@@ -19,14 +19,6 @@ import SEO from '../components/Seo'
 // HAX: these constants don't appear to be intended to be consumed outside of
 // gatsby-remark-images' internals. Prepare for breaking changes.
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
-
-const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-`
 
 const Header = styled(Breakout)`
   background: var(--brand);
@@ -118,10 +110,9 @@ const Body = styled.main`
   }
 `
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate = ({ data, location }) => {
   const { author } = useSiteMetadata()
   const post = data.mdx
-  const { previous, next } = pageContext
 
   return (
     <Layout location={location}>
@@ -139,27 +130,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           written on {post.frontmatter.date}.
         </Column>
       </Header>
+
       <Heading size="1">{post.frontmatter.title}</Heading>
+
       <Body>
         <MDXRenderer>{post.code.body}</MDXRenderer>
       </Body>
-
-      <List>
-        <li>
-          {previous && (
-            <AnimatedLink href={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </AnimatedLink>
-          )}
-        </li>
-        <li>
-          {next && (
-            <AnimatedLink href={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </AnimatedLink>
-          )}
-        </li>
-      </List>
 
       <Bio />
     </Layout>
@@ -169,7 +145,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 BlogPostTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired,
 }
 
 export default BlogPostTemplate
