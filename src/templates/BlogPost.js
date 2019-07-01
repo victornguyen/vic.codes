@@ -35,7 +35,7 @@ const Heading = styled(Title)`
   &&& {
     margin: 0 0 0.6em;
   }
-  padding: 2em 0 0.6em;
+  padding: 1.5em 0 0.6em;
   border-bottom: 1px dotted lightgrey;
 `
 
