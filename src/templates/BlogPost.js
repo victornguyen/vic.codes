@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import { useSiteMetadata } from '../hooks'
 import { MDXRenderer } from 'gatsby-mdx'
 // TODO: centralise prism theme selection? imported here and in Code
 import theme from 'prism-react-renderer/themes/oceanicNext'
@@ -9,6 +10,10 @@ import sizes from '../styles/sizes'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
+import Title from '../components/Title'
+import Breakout from '../components/Breakout'
+import Column from '../components/Column'
+import AnimatedLink from '../components/AnimatedLink'
 import SEO from '../components/Seo'
 
 // HAX: these constants don't appear to be intended to be consumed outside of
@@ -21,6 +26,21 @@ const List = styled.ul`
   justify-content: space-between;
   list-style: none;
   padding: 0;
+`
+
+const Header = styled(Breakout)`
+  background: var(--brand);
+  color: #fff;
+  padding: 0.5em 0;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+`
+
+const Heading = styled(Title)`
+  &&& {
+    margin: 0 0 0.6em;
+  }
+  padding: 2em 0 0.6em;
+  border-bottom: 1px dotted lightgrey;
 `
 
 const Body = styled.main`
@@ -98,45 +118,52 @@ const Body = styled.main`
   }
 `
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.mdx
-    const { previous, next } = this.props.pageContext
+const BlogPostTemplate = ({ data, pageContext, location }) => {
+  const { author } = useSiteMetadata()
+  const post = data.mdx
+  const { previous, next } = pageContext
 
-    return (
-      <Layout location={this.props.location}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
+  return (
+    <Layout location={location}>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      />
 
-        <Body>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-          <MDXRenderer>{post.code.body}</MDXRenderer>
-        </Body>
+      <Header>
+        <Column>
+          ✍ Hey, it&rsquo;s a blog post by{' '}
+          <AnimatedLink href="/" alternatestyle="true">
+            {author}
+          </AnimatedLink>{' '}
+          written on {post.frontmatter.date}.
+        </Column>
+      </Header>
+      <Heading size="1">{post.frontmatter.title}</Heading>
+      <Body>
+        <MDXRenderer>{post.code.body}</MDXRenderer>
+      </Body>
 
-        <List>
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </List>
+      <List>
+        <li>
+          {previous && (
+            <AnimatedLink href={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </AnimatedLink>
+          )}
+        </li>
+        <li>
+          {next && (
+            <AnimatedLink href={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </AnimatedLink>
+          )}
+        </li>
+      </List>
 
-        <Bio />
-      </Layout>
-    )
-  }
+      <Bio />
+    </Layout>
+  )
 }
 
 BlogPostTemplate.propTypes = {
