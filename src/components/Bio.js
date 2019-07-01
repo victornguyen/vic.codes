@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-mdx'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
@@ -8,6 +9,9 @@ import sizes from '../styles/sizes'
 import Image from 'gatsby-image'
 import Breakout from './Breakout'
 import Column from './Column'
+import AnimatedLink from './AnimatedLink'
+
+const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
 
 const BioBreakout = styled(Breakout)`
   margin-bottom: 20px;
@@ -57,19 +61,6 @@ const Copy = styled.section`
     }
   }
 
-  a {
-    color: var(--accent);
-    background: rgba(0, 0, 0, 0.1);
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    :hover {
-      background: var(--accent);
-      color: var(--title-color);
-      text-shadow: none;
-      border-color: transparent;
-    }
-  }
-
   @media (min-width: 992px) {
     font-size: 26px;
   }
@@ -103,7 +94,9 @@ const Bio = () => {
       <Column>
         <Avatar fixed={fixed} alt={author} />
         <Copy>
-          <MDXRenderer>{code.body}</MDXRenderer>
+          <MDXProvider components={{ a: BioLink }}>
+            <MDXRenderer>{code.body}</MDXRenderer>
+          </MDXProvider>
         </Copy>
       </Column>
     </BioBreakout>

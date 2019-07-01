@@ -8,14 +8,22 @@ import styled from 'styled-components'
 const TextLink = styled(animated(Link))`
   display: inline-block;
   text-decoration: none;
-  color: var(--brand);
   padding: 0 0.3em;
-  background: rgba(0, 0, 0, 0.02);
+  background: ${props =>
+    props.alternatestyle === 'true'
+      ? `rgba(0, 0, 0, 0.1)`
+      : `rgba(0, 0, 0, 0.02)`};
+  color: ${props =>
+    props.alternatestyle === 'true' ? `var(--accent)` : `var(--brand)`};
+  text-shadow: ${props =>
+    props.alternatestyle === 'true' ? `1px 1px 0 rgba(0, 0, 0, 0.5)` : `none`};
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.2em;
   :hover {
     background: var(--accent);
     color: var(--title-color);
+    text-shadow: none;
+    border-color: ${props => props.alternatestyle === 'true' && `transparent`};
   }
 `
 
@@ -98,6 +106,7 @@ const AnimatedLink = ({
 }
 
 AnimatedLink.propTypes = {
+  alternatestyle: PropTypes.string,
   children: PropTypes.node,
   enablePerspective: PropTypes.bool,
   href: PropTypes.string.isRequired,
@@ -105,6 +114,15 @@ AnimatedLink.propTypes = {
 }
 
 AnimatedLink.defaultProps = {
+  // Because this attribute gets rendered to the DOM, it needs to be lowercase
+  // and a string, otherwise it's not a valid custom attribute.
+  // We could not render it to the DOM, by destructuring it in AnimatedLink
+  // props, but we would never use it in the actual component, so eslint
+  // wouldn't like that. So instead, we keep it in '...rest' and render it to
+  // the DOM.
+  // TODO: we could filter out the alternateStyle prop from rest before
+  // spreading it on the element? Then we could type it as a bool?
+  alternatestyle: 'false',
   enablePerspective: true,
   scaleTo: 1.15,
 }
