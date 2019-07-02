@@ -129,7 +129,11 @@ const BlogPostTemplate = ({ data, location }) => {
           <AnimatedLink href="/" alternatestyle="true">
             {author}
           </AnimatedLink>{' '}
-          published on {post.frontmatter.date}.
+          published on{' '}
+          <time dateTime={post.frontmatter.datetime}>
+            {post.frontmatter.date}
+          </time>
+          .
         </Column>
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>
@@ -155,6 +159,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        datetime: date(formatString: "YYYY-MM-DD")
         description
       }
       code {

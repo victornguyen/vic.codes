@@ -43,7 +43,9 @@ const Post = ({ node }) => {
           {title}
         </AnimatedLink>
       </PostTitle>
-      <PostDate>{node.frontmatter.date}</PostDate>
+      <PostDate dateTime={node.frontmatter.datetime}>
+        {node.frontmatter.date}
+      </PostDate>
     </PostContainer>
   )
 }
@@ -67,6 +69,7 @@ const Blog = () => {
             }
             frontmatter {
               date(formatString: "MMMM D, YYYY")
+              datetime: date(formatString: "YYYY-MM-DD")
               title
             }
           }
