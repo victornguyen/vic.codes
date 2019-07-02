@@ -30,6 +30,11 @@ const Header = styled(Breakout)`
   }
 `
 
+const Icon = styled.span`
+  position: absolute;
+  margin-left: -1.8em;
+`
+
 const Heading = styled(Title)`
   &&& {
     margin: 0 0 0.6em;
@@ -125,7 +130,8 @@ const BlogPostTemplate = ({ data, location }) => {
       />
       <Header>
         <Column>
-          ✍ Hey, it&rsquo;s a blog post by{' '}
+          <Icon>✍</Icon>
+          Hey, it&rsquo;s a blog post by{' '}
           <AnimatedLink href="/" alternatestyle="true">
             {author}
           </AnimatedLink>{' '}
