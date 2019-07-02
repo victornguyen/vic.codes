@@ -1,6 +1,6 @@
 ---
 title: Hi folks, it's a stylish post with a really, really long title
-date: "2015-05-28T22:40:32.169Z"
+date: "2018-09-27"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 
