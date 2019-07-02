@@ -21,6 +21,7 @@ const Date = styled.time`
   position: static;
   font-size: 12px;
   color: var(--text-light);
+  z-index: -1;
   @media (min-width: ${sizes.viewport7}) {
     position: absolute;
     top: 0.8em;
