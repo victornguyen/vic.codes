@@ -62,14 +62,12 @@ const Blog = () => {
         edges {
           node {
             id
-            excerpt
             fields {
               slug
             }
             frontmatter {
               date(formatString: "MMMM D, YYYY")
               title
-              description
             }
           }
         }
