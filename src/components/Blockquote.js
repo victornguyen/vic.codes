@@ -8,11 +8,11 @@ import Column from './Column'
 
 const Quote = styled.blockquote`
   padding: 1.5vw 0 2vw 0;
-  margin: 0 2vw;
+  margin: 0;
   font-style: italic;
   @media (min-width: ${sizes.viewport9}) {
     padding: 15px 0 20px 0;
-    margin: 0 20px;
+    margin: 0;
   }
 `
 
