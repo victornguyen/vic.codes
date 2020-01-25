@@ -5,9 +5,9 @@ node_js: node
 #   only:
 #     - master
 
-cache:
-  directories:
-    - node_modules
+# cache:
+#   directories:
+#     - node_modules
 
 script:
   - npm run lint
