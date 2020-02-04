@@ -3,6 +3,7 @@ title: Catching up after being AFK in 2018
 date: "2019-07-03"
 description: Lessons learnt after 18 months away from the game.
 ---
+
 For reasons I won't get into here, I was unable to work (or do anything) for an
 18 month period spanning 2017 to 2018. I was completely off the grid.
 
@@ -17,8 +18,8 @@ being frozen for 70 years...
 
 After much anxiety about resuming my professional career, I dove into some
 contract work and found that getting up to speed after a long period of
-inactivity wasn't _thaaaat_ difficult. In fact, some of the more tricky
-challenges were ones I wasn't anticipating.
+inactivity wasn't as difficult as I'd expected. In fact, some of the more
+tricky challenges were ones I wasn't anticipating.
 
 Here's what I learnt:
 
@@ -44,14 +45,14 @@ It's a win-win.
 
 As far as I know, there are only two rules for maintaining a blog as a developer:
 
-1. Your blog must be hilariously over-engineered ✅
-2. You must write about Imposter Syndrome ✅
+1. ✅ Your blog must be hilariously over-engineered
+2. ✅ You must write about Imposter Syndrome
 
 Of all the hot takes on Imposter Syndrome I've read, I like [Rach
 Smith's](https://rachsmith.com/2017/i-dont-have-imposter-syndrome/) the most.
 
-Even with that in mind, you better believe I was carrying around a meaty chunk
-of self-doubt wherever I went. Keys, wallet, phone, self-doubt.
+Even with that in mind, I was still carrying around a chunk of self-doubt
+wherever I went. Keys, wallet, phone, self-doubt.
 
 However, over time, I've come to embrace it. It helps me maintain an
 edge I otherwise wouldn't have. It allows me to self-identify as a beginner
@@ -72,7 +73,7 @@ simply just doesn't move at the pace our Twitter feeds would have us believe.
 Changes are usually iterative. Evolutionary rather than revolutionary, building
 on ideas that were built on ideas previous to those, and so on.
 
-So even after 18 months, I wasn't completely lost because I could see a
+So even after 18 months, I wasn't completely lost because I could see the
 through-line from 2017 and 2019. Here are some notes I took in my first week
 back:
 
@@ -82,8 +83,8 @@ back:
   access state?)
 * React: context has an actual API now. Check it out.
 * Everyone seems to use VSCode now. Check it out. Is it good?
-* Re-learn your git commands and aliases. Create new aliases that make
-  sense to 2019 you.
+* Relearn your git commands and aliases. Create new aliases that make
+  sense to 2019-you.
 * You'll be right.
 ```
 
@@ -96,35 +97,40 @@ much for me.
 20 seconds later, I completely changed my tone.
 
 Seriously, I just vomit code into my editor now with no regard for spacing or
-formatting and Prettier tidies it up like an obedient robot vacuum following
-you around that actually works. It feels like cheating.
+formatting and Prettier obediently tidies it up instantly. It's like I've freed
+up a CPU core that was previously dedicated to formatting. It feels like
+cheating.
 
 ## TypeScript. So... helpful?
 
 This was a suprising one to me. Before my sabbatical, the last time I'd used
-[TypeScript](https://www.typescriptlang.org/) was in an Angular 1.x app for a
-big bank. It had the repuation of being overbearing, while
-[Flow](https://flow.org/) seemed have have the backing of the community.
+[TypeScript](https://www.typescriptlang.org/) was in an enterprise Angular 1.x
+app for a big bank. It had the repuation of being overbearing with a poor ROI,
+while [Flow](https://flow.org/) seemed have have the backing of the community.
 
 One extended period of time later, that's flipped on it's head.
 
-As the legitimisation of our platform continues, it makes sense...
+It makes sense. As web technologies are asked to do more and more, the
+legitimisation of the web as a platform continues, the idea of TypeScript and
+the benefits it can bring make it very attractive for the time we live in.
 
-Although there already seems to be some healthy discussion about whether the
-investment is "worth it"...
+Although there already seems to be some [healthy
+discussion](https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b)
+about whether the investment is worth it.
 
 ## Programming is still fun
 
-More than anything, I rediscovered just how _fun_ it was to operate in a team
-moving toward a common goal. I will always view programming as a team sport.
-And, as such, it was the small "in-between" moments I relished the most. Like
-the excitement when you and a teammate discover you can both mutually benefit
-from a refactor of a common set of logic. Or when you and your pair both
-realise you'd both made the same dumb mistake.
+More than anything, I rediscovered just how _fun_ it all was.
 
-But can also be a rewarding solitary exercise in problem solving. Where it's
-just your mind and the problem and clear runway to solve it. I love those
-moments too.
+I will always view programming as a team sport. So it was the small
+"in-between" moments I relished the most. Like the excitement when you and a
+teammate discover you can both mutually benefit from a refactor of a common set
+of logic. _"Everyone wins!"_ Or when you and your pair both realise you'd both
+mistakenly held the same dumb assumption when approaching a problem. _"Lol
+we're so stupid!"_
+
+Conversely, programming can also be a rewarding solo experience. Where it's
+just you, the problem and an afternoon to solve it. I love those moments too.
 
 ![I can do this all day](./allday.gif)
 
