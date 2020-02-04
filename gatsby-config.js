@@ -1,4 +1,4 @@
-const mdxFeed = require('gatsby-mdx/feed')
+const mdxFeed = require('gatsby-plugin-mdx/feed')
 
 module.exports = {
   siteMetadata: {
@@ -31,7 +31,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [

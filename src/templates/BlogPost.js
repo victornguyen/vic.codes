@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
-import { MDXRenderer } from 'gatsby-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 // TODO: centralise prism theme selection? imported here and in Code
 import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
@@ -144,7 +144,7 @@ const BlogPostTemplate = ({ data, location }) => {
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>
       <Body>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+        <MDXRenderer>{post.body}</MDXRenderer>
       </Body>
     </Layout>
   )
@@ -168,9 +168,7 @@ export const pageQuery = graphql`
         datetime: date(formatString: "YYYY-MM-DD")
         description
       }
-      code {
-        body
-      }
+      body
     }
   }
 `

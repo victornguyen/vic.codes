@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
 import { MDXProvider } from '@mdx-js/react'
-import { MDXRenderer } from 'gatsby-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
@@ -80,16 +80,14 @@ const Bio = ({ inFooter }) => {
       }
       copy: mdx(frontmatter: { title: { eq: "Bio" } }) {
         id
-        code {
-          body
-        }
+        body
       }
     }
   `)
 
   const { author } = useSiteMetadata()
   const { fixed } = data.avatar.childImageSharp
-  const { code } = data.copy
+  const { body } = data.copy
 
   return (
     <BioBreakout type="header" inFooter={inFooter}>
@@ -97,7 +95,7 @@ const Bio = ({ inFooter }) => {
         <Avatar fixed={fixed} alt={author} inFooter={inFooter} />
         <Copy inFooter={inFooter}>
           <MDXProvider components={{ a: BioLink }}>
-            <MDXRenderer>{code.body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </Copy>
       </Column>

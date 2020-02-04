@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { MDXRenderer } from 'gatsby-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import ListTitle from './ListTitle'
 import sizes from '../styles/sizes'
@@ -46,19 +46,13 @@ const Lists = () => {
   const { social, hire, skills } = useStaticQuery(graphql`
     query ListsQuery {
       social: mdx(frontmatter: { title: { eq: "Social" } }) {
-        code {
-          body
-        }
+        body
       }
       hire: mdx(frontmatter: { title: { eq: "Hire" } }) {
-        code {
-          body
-        }
+        body
       }
       skills: mdx(frontmatter: { title: { eq: "Skills" } }) {
-        code {
-          body
-        }
+        body
       }
     }
   `)
@@ -68,19 +62,19 @@ const Lists = () => {
       <Block>
         <ListTitle>Stalk me 🔎</ListTitle>
         <List>
-          <MDXRenderer>{social.code.body}</MDXRenderer>
+          <MDXRenderer>{social.body}</MDXRenderer>
         </List>
       </Block>
       <Block>
         <ListTitle>Hire me 💼</ListTitle>
         <List>
-          <MDXRenderer>{hire.code.body}</MDXRenderer>
+          <MDXRenderer>{hire.body}</MDXRenderer>
         </List>
       </Block>
       <Block>
         <ListTitle>Mad skills 👨‍💻</ListTitle>
         <List>
-          <MDXRenderer>{skills.code.body}</MDXRenderer>
+          <MDXRenderer>{skills.body}</MDXRenderer>
         </List>
       </Block>
     </Container>
