@@ -1,8 +1,13 @@
 ---
 title: Catching up after being AFK in 2018
-date: "2019-07-03"
+date: "2020-02-07"
 description: Lessons learnt after 18 months away from the game.
 ---
+
+import internet from './internet.mp4'
+import worthy from './worthy.mp4'
+import allday from './allday.mp4'
+import Video from 'components/Video'
 
 For reasons I won't get into here, I was unable to work (or do anything) for an
 18 month period spanning 2017 to 2018. I was completely off the grid.
@@ -12,7 +17,7 @@ of rejoining an industry that had grown by 18 months while having zero
 knowledge of what had transpired. I was like Captain America waking up after
 being frozen for 70 years...
 
-![Internet. So helpful.](internet.gif)
+<Video src={internet} />
 
 ... but better looking.
 
@@ -62,7 +67,7 @@ again, which has made me more open and ready to learn.
 
 Even though I was now worthy enough to wield the power of self-doubt...
 
-![Worthy!](./worthy.gif)
+<Video src={worthy} />
 
 ... I found that there was nowhere near as much to catch-up on as I thought
 there would be.
@@ -98,8 +103,8 @@ much for me.
 
 Seriously, I just vomit code into my editor now with no regard for spacing or
 formatting and Prettier obediently tidies it up instantly. It's like I've freed
-up a CPU core that was previously dedicated to formatting. It feels like
-cheating.
+up a CPU core in my brain that was previously dedicated to formatting. It feels
+like cheating.
 
 ## TypeScript. So... helpful?
 
@@ -112,7 +117,7 @@ One extended period of time later, that's flipped on it's head.
 
 It makes sense. As web technologies are asked to do more and more, the
 legitimisation of the web as a platform continues, the idea of TypeScript and
-the benefits it can bring make it very attractive for the time we live in.
+its benefits scales well with the increasing complexity of our frontends.
 
 Although there already seems to be some [healthy
 discussion](https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b)
@@ -122,17 +127,17 @@ about whether the investment is worth it.
 
 More than anything, I rediscovered just how _fun_ it all was.
 
-I will always view programming as a team sport. So it was the small
-"in-between" moments I relished the most. Like the excitement when you and a
-teammate discover you can both mutually benefit from a refactor of a common set
-of logic. _"Everyone wins!"_ Or when you and your pair both realise you'd both
-mistakenly held the same dumb assumption when approaching a problem. _"Lol
-we're so stupid!"_
+I will always view programming as a team sport. Like real team sports, it was
+the small "in-between" moments between teammates I relished the most. Like the
+excitement when you and a teammate discover you can both mutually benefit from
+a refactor of a common set of logic. _"We're the best! Everyone wins!"_ Or when
+you and your pair both realise you'd both held the same dumb assumption for
+hours when approaching a problem.  _"We're the worst! We're so stupid!"_
 
-Conversely, programming can also be a rewarding solo experience. Where it's
+At the same time, programming is also a rewarding solo experience. Where it's
 just you, the problem and an afternoon to solve it. I love those moments too.
 
-![I can do this all day](./allday.gif)
+<Video src={allday} />
 
 Err... so what I'm really trying to say is, I'm the Captain America of frontend
 development.

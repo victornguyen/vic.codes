@@ -69,9 +69,3 @@ h6 {
 .twitter-tweet-rendered {
   margin: 2rem auto !important;
 }
-
-/* Embiggen all the gifs */
-img[src$='.gif'] {
-  width: 100%;
-  height: auto;
-}
