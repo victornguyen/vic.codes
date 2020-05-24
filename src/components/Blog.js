@@ -1,76 +1,56 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, useStaticQuery, Link } from 'gatsby'
-import styled from 'styled-components'
-
-const Container = styled.section``
-
-const Title = styled.h2`
-  font-size: 26px;
-`
-
-const PostTitle = styled.h3`
-  font-size: 22px;
-  font-weight: normal;
-  margin: 0;
-`
-
-const Post = ({ node }) => {
-  const title = node.frontmatter.title || node.fields.slug
-  return (
-    <div key={node.fields.slug}>
-      <PostTitle>
-        <Link to={node.fields.slug}>{title}</Link>
-      </PostTitle>
-      <small>{node.frontmatter.date}</small>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: node.frontmatter.description || node.excerpt,
-        }}
-      />
-    </div>
-  )
-}
-
-Post.propTypes = {
-  node: PropTypes.object.isRequired,
-}
+import { graphql, useStaticQuery } from 'gatsby'
+import ListTitle from './ListTitle'
+import Post from './BlogPostPreview'
 
 const Blog = () => {
-  const data = useStaticQuery(graphql`
-    query BlogQuery {
-      allMdx(
-        filter: { fileAbsolutePath: { regex: "/blog/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM D, YYYY")
-              title
-              description
-            }
-          }
-        }
-      }
-    }
-  `)
-
+  const data = useStaticQuery(query)
   const posts = data.allMdx.edges
 
   return (
-    <Container>
-      <Title>Writing ✍</Title>
-      {posts.map(({ node }) => (
-        <Post key={node.id} node={node} />
-      ))}
-    </Container>
+    <section>
+      <ListTitle>Writing ✍</ListTitle>
+      {posts.map(({ node }) => {
+        const {
+          id,
+          fields: { slug },
+          frontmatter: { date, datetime, title },
+        } = node
+        return (
+          <Post
+            key={id}
+            title={title}
+            date={date}
+            datetime={datetime}
+            slug={slug}
+          />
+        )
+      })}
+    </section>
   )
 }
 
 export default Blog
+
+const query = graphql`
+  query BlogQuery {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM D, YYYY")
+            datetime: date(formatString: "YYYY-MM-DD")
+            title
+          }
+        }
+      }
+    }
+  }
+`

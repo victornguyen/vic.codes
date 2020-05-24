@@ -1,17 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
-import { MDXRenderer } from 'gatsby-mdx'
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
 import Image from 'gatsby-image'
 import Breakout from './Breakout'
 import Column from './Column'
+import AnimatedLink from './AnimatedLink'
+
+const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
 
 const BioBreakout = styled(Breakout)`
-  margin-bottom: 20px;
-  padding: 25px 0 2.5vw 0;
+  margin-top: ${props => (props.inFooter ? `50px` : `0`)};
+  margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
+  padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
   background: var(--brand);
   background-image: linear-gradient(
     to bottom right,
@@ -19,30 +25,33 @@ const BioBreakout = styled(Breakout)`
     var(--brand-light)
   );
   @media (min-width: ${sizes.viewport9}) {
-    padding-bottom: 25px;
+    padding-bottom: ${props => (props.inFooter ? `15px` : `25px`)};
   }
 `
 
 const Avatar = styled(Image)`
-  // TODO: is there a better way?
-  display: block !important;
+  &[style] {
+    display: block !important;
+  }
   margin-left: auto;
   margin-right: auto;
 
   min-width: 80px;
-  border-radius: 30%;
+  border-radius: 50%;
   border: 6px solid var(--accent);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
   @media (min-width: ${sizes.viewport7}) {
-    position: fixed !important;
-    top: 45px;
+    &[style] {
+      position: absolute !important;
+    }
+    top: ${props => (props.inFooter ? `35px` : `45px`)};
     margin-left: -110px;
   }
 `
 
 const Copy = styled.section`
-  font-size: var(--title-size);
+  font-size: calc(${props => (props.inFooter ? `12px` : `16px`)} + 1vw);
   line-height: 1.5;
   color: #fff;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
@@ -53,21 +62,13 @@ const Copy = styled.section`
       color: #fff;
     }
   }
-  a {
-    color: var(--accent);
-    background: rgba(0, 0, 0, 0.1);
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    :hover {
-      background: var(--accent);
-      color: var(--title-color);
-      text-shadow: none;
-      border-color: transparent;
-    }
+
+  @media (min-width: 992px) {
+    font-size: ${props => (props.inFooter ? `22px` : `26px`)};
   }
 `
 
-const Bio = () => {
+const Bio = ({ inFooter }) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/face.jpg/" }) {
@@ -79,27 +80,35 @@ const Bio = () => {
       }
       copy: mdx(frontmatter: { title: { eq: "Bio" } }) {
         id
-        code {
-          body
-        }
+        body
       }
     }
   `)
 
   const { author } = useSiteMetadata()
   const { fixed } = data.avatar.childImageSharp
-  const { code } = data.copy
+  const { body } = data.copy
 
   return (
-    <BioBreakout type="header">
+    <BioBreakout type="header" inFooter={inFooter}>
       <Column>
-        <Avatar fixed={fixed} alt={author} />
-        <Copy>
-          <MDXRenderer>{code.body}</MDXRenderer>
+        <Avatar fixed={fixed} alt={author} inFooter={inFooter} />
+        <Copy inFooter={inFooter}>
+          <MDXProvider components={{ a: BioLink }}>
+            <MDXRenderer>{body}</MDXRenderer>
+          </MDXProvider>
         </Copy>
       </Column>
     </BioBreakout>
   )
+}
+
+Bio.propTypes = {
+  inFooter: PropTypes.bool,
+}
+
+Bio.defaultProps = {
+  inFooter: false,
 }
 
 export default Bio

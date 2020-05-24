@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
-import { MDXRenderer } from 'gatsby-mdx'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
@@ -35,9 +35,7 @@ const Footer = ({ className }) => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
       copy: mdx(frontmatter: { title: { eq: "Footer" } }) {
-        code {
-          body
-        }
+        body
       }
     }
   `)
@@ -48,7 +46,7 @@ const Footer = ({ className }) => {
         <p>
           © {new Date().getFullYear()} {author}.{' '}
         </p>
-        <MDXRenderer>{data.copy.code.body}</MDXRenderer>
+        <MDXRenderer>{data.copy.body}</MDXRenderer>
       </FooterColumn>
     </FooterBreakout>
   )

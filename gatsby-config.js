@@ -1,4 +1,4 @@
-const mdxFeed = require('gatsby-mdx/feed')
+const mdxFeed = require('gatsby-plugin-mdx/feed')
 
 module.exports = {
   siteMetadata: {
@@ -31,7 +31,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
@@ -39,6 +39,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 900,
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -47,12 +48,12 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          { resolve: `gatsby-remark-prismjs` },
           { resolve: `gatsby-remark-copy-linked-files` },
           { resolve: `gatsby-remark-smartypants` },
         ],
       },
     },
+    `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -81,6 +82,13 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://vic.codes`,
+        noQueryString: true,
+      },
+    },
     `gatsby-plugin-styled-components`,
   ],
 }
