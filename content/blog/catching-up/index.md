@@ -1,7 +1,8 @@
 ---
 title: Catching up after being AFK in 2018
-date: "2020-02-07"
+date: "2020-05-24"
 description: Lessons learnt after 18 months away from the game.
+summary: I began writing this post in 2019 and it only took a global pandemic for me to finish it.
 ---
 
 import internet from './internet.mp4'

@@ -131,7 +131,7 @@ const BlogPostTemplate = ({ data, location }) => {
       <Header>
         <Column>
           <Icon>✍</Icon>
-          Hey, it&rsquo;s a blog post by{' '}
+          It&rsquo;s a blog post by{' '}
           <AnimatedLink href="/" alternatestyle="true">
             {author}
           </AnimatedLink>{' '}
@@ -139,7 +139,8 @@ const BlogPostTemplate = ({ data, location }) => {
           <time dateTime={post.frontmatter.datetime}>
             {post.frontmatter.date}
           </time>
-          .
+          .<br />
+          {post.frontmatter.summary}
         </Column>
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>
@@ -167,6 +168,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM D, YYYY")
         datetime: date(formatString: "YYYY-MM-DD")
         description
+        summary
       }
       body
     }
