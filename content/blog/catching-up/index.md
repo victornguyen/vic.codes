@@ -79,9 +79,9 @@ simply just doesn't move at the pace our Twitter feeds would have us believe.
 Changes are usually iterative. Evolutionary rather than revolutionary, building
 on ideas that were built on ideas previous to those, and so on.
 
-So even after 18 months, I wasn't completely lost because I could see the
-through-line from 2017 and 2019. Here are some notes I took in my first week
-back:
+So even after 18 months in the dark, I wasn't completely lost because I could
+see the through-line from 2017 and 2019. Here are some notes I took in my first
+week back:
 
 ```markdown {8}
 ## Things to catchup on
@@ -102,23 +102,24 @@ much for me.
 
 20 seconds later, I completely changed my tone.
 
-Seriously, I just vomit code into my editor now with no regard for spacing or
-formatting and Prettier obediently tidies it up instantly. It's like I've freed
-up a CPU core in my brain that was previously dedicated to formatting. It feels
-like cheating.
+Seriously, I just vomit code into my editor now with almost no regard for
+spacing or formatting and Prettier obediently tidies it up instantly. It's like
+I've freed up a CPU core in my brain that was previously dedicated to
+formatting. It feels like cheating.
 
 ## TypeScript. So... helpful?
 
-This was a suprising one to me. Before my sabbatical, the last time I'd used
-[TypeScript](https://www.typescriptlang.org/) was in an enterprise Angular 1.x
-app for a big bank. It had the repuation of being overbearing with a poor ROI,
-while [Flow](https://flow.org/) seemed have have the backing of the community.
+This was a surprising one to me. Before my sabbatical, the last time I'd used
+[TypeScript](https://www.typescriptlang.org/) was while working on an
+enterprise Angular 1.x app for a big bank. It had the reputation of being
+overbearing with a poor ROI, while [Flow](https://flow.org/) seemed have have
+the backing of the community.
 
-One extended period of time later, that's flipped on it's head.
+One extended period of time later, that's flipped on its head.
 
 It makes sense. As web technologies are asked to do more and more, the
 legitimisation of the web as a platform continues, the idea of TypeScript and
-its benefits scales well with the increasing complexity of our frontends.
+its benefits scale well with the increasing complexity of our frontends.
 
 Although there already seems to be some [healthy
 discussion](https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b)
@@ -131,12 +132,18 @@ More than anything, I rediscovered just how _fun_ it all was.
 I will always view programming as a team sport. Like real team sports, it was
 the small "in-between" moments between teammates I relished the most. Like the
 excitement when you and a teammate discover you can both mutually benefit from
-a refactor of a common set of logic. _"We're the best! Everyone wins!"_ Or when
-you and your pair both realise you'd both held the same dumb assumption for
-hours when approaching a problem.  _"We're the worst! We're so stupid!"_
+a refactor of a common set of logic.
 
-At the same time, programming is also a rewarding solo experience. Where it's
-just you, the problem and an afternoon to solve it. I love those moments too.
+> "We're the best! Everyone wins!"
+
+Or when you and your pair both realise you'd both held the same dumb assumption
+for hours when approaching a problem.
+
+> "We're the worst! We're so stupid!"
+
+While somehow, at the same time, programming is one of the most rewarding solo
+experiences (and probably how most of us got into it in the first place). Just
+you, the problem and an afternoon to solve it. Bliss.
 
 <Video src={allday} />
 
