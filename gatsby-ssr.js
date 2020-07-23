@@ -25,6 +25,7 @@ const MagicScriptTag = () => {
   const mode = getInitialColorMode();
   const root = document.documentElement;
 
+  // TODO: DRY from ThemeContext.js
   root.style.setProperty(
     '--color-text',
     mode === 'light'
@@ -43,8 +44,7 @@ const MagicScriptTag = () => {
       ? 'hotpink'
       : 'green'
   );
-  root.style.setProperty(
-    '--color-primary',
+  root.style.setProperty( '--color-primary',
     mode === 'light'
       ? 'hotpink'
       : 'darksalmon'

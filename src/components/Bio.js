@@ -11,6 +11,7 @@ import Image from 'gatsby-image'
 import Breakout from './Breakout'
 import Column from './Column'
 import AnimatedLink from './AnimatedLink'
+import DarkToggle from './DarkToggle'
 
 const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
 
@@ -98,6 +99,7 @@ const Bio = ({ inFooter }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </Copy>
+        <DarkToggle />
       </Column>
     </BioBreakout>
   )
