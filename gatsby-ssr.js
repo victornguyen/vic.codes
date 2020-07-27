@@ -1,4 +1,5 @@
 import React from 'react'
+import { COLORS } from './src/styles/colors'
 
 const MagicScriptTag = () => {
   const codeToRunOnClient = `
@@ -25,31 +26,13 @@ const MagicScriptTag = () => {
   const mode = getInitialColorMode();
   const root = document.documentElement;
 
-  // TODO: DRY from ThemeContext.js
-  root.style.setProperty(
-    '--color-text',
-    mode === 'light'
-      ? '#444'
-      : 'white'
-  );
-  root.style.setProperty(
-    '--color-background',
-    mode === 'light'
-      ? 'white'
-      : 'black'
-  );
-  root.style.setProperty(
-    '--color-brand',
-    mode === 'light'
-      ? 'hotpink'
-      : 'green'
-  );
-  root.style.setProperty( '--color-primary',
-    mode === 'light'
-      ? 'hotpink'
-      : 'darksalmon'
-  );
+  // Set initial color mode
   root.style.setProperty('--initial-color-mode', mode);
+
+  // Set inital color var values according to mode/theme
+  for (const [name, color] of Object.entries(${JSON.stringify(COLORS)})) {
+    root.style.setProperty('--color-' + name, color[mode])
+  }
 })()`
 
   return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />

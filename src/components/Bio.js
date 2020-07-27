@@ -19,12 +19,13 @@ const BioBreakout = styled(Breakout)`
   margin-top: ${props => (props.inFooter ? `50px` : `0`)};
   margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
   padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
-  background: var(--brand);
+  background: var(--color-brand);
   background-image: linear-gradient(
     to bottom right,
-    var(--brand) 70%,
-    var(--brand-light)
+    var(--color-brand) 70%,
+    var(--color-brand)
   );
+  transition: background 250ms ease;
   @media (min-width: ${sizes.viewport9}) {
     padding-bottom: ${props => (props.inFooter ? `15px` : `25px`)};
   }

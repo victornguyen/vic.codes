@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { COLORS } from '../styles/colors'
 
 export const ThemeContext = createContext()
 
@@ -14,33 +15,19 @@ export const ThemeProvider = ({ children }) => {
     rawSetColorMode(initialColorValue)
   }, [])
 
-  const setColorMode = value => {
+  const setColorMode = mode => {
     const root = window.document.documentElement
 
     // Update React colorMode state
-    rawSetColorMode(value)
+    rawSetColorMode(mode)
 
     // Update localStorage
-    localStorage.setItem('color-mode', value)
+    localStorage.setItem('color-mode', mode)
 
-    // Update colour css vars
-    // TODO: DRY from gatsby-ssr.js
-    root.style.setProperty(
-      '--color-text',
-      value === 'light' ? '#444444' : 'white'
-    )
-    root.style.setProperty(
-      '--color-background',
-      value === 'light' ? 'white' : 'black'
-    )
-    root.style.setProperty(
-      '--color-brand',
-      value === 'light' ? 'hotpink' : 'green'
-    )
-    root.style.setProperty(
-      '--color-primary',
-      value === 'light' ? 'hotpink' : 'darksalmon'
-    )
+    // Update colour css vars from theme
+    for (const [name, color] of Object.entries(COLORS)) {
+      root.style.setProperty(`--color-${name}`, color[mode])
+    }
   }
 
   return (

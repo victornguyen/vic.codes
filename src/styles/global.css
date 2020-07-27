@@ -12,6 +12,7 @@
 
 body {
   background: var(--color-background);
+  transition: background 250ms ease;
   color: var(--color-text);
   font-family: 'Rubik', sans-serif;
 }
