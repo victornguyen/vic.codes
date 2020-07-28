@@ -3,6 +3,11 @@ import { ThemeContext } from './ThemeContext'
 
 const DarkToggle = () => {
   const { colorMode, setColorMode } = useContext(ThemeContext)
+
+  if (!colorMode) {
+    return null
+  }
+
   return (
     <label>
       <input
