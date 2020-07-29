@@ -1,4 +1,5 @@
 import React from 'react'
+import App from './src/components/App'
 import { COLORS } from './src/styles/colors'
 
 // <script> to inject to parse color mode from localStorage and set an initial
@@ -57,4 +58,9 @@ const FallbackStyles = () => {
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setHeadComponents(<FallbackStyles />)
   setPreBodyComponents(<MagicScriptTag />)
+}
+
+// eslint-disable-next-line react/prop-types
+export const wrapRootElement = ({ element }) => {
+  return <App>{element}</App>
 }

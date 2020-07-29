@@ -8,7 +8,6 @@ import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
-import { ThemeProvider } from '../components/ThemeContext'
 import Layout from '../components/Layout'
 import Title from '../components/Title'
 import Breakout from '../components/Breakout'
@@ -125,33 +124,31 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.mdx
 
   return (
-    <ThemeProvider>
-      <Layout location={location} showBioFooter>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        <Header>
-          <Column>
-            <Icon>✍</Icon>
-            It&rsquo;s a blog post by{' '}
-            <AnimatedLink href="/" alternatestyle="true">
-              {author}
-            </AnimatedLink>{' '}
-            published on{' '}
-            <time dateTime={post.frontmatter.datetime}>
-              {post.frontmatter.date}
-            </time>
-            .<br />
-            {post.frontmatter.summary}
-          </Column>
-        </Header>
-        <Heading size="1">{post.frontmatter.title}</Heading>
-        <Body>
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </Body>
-      </Layout>
-    </ThemeProvider>
+    <Layout location={location} showBioFooter>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description || post.excerpt}
+      />
+      <Header>
+        <Column>
+          <Icon>✍</Icon>
+          It&rsquo;s a blog post by{' '}
+          <AnimatedLink href="/" alternatestyle="true">
+            {author}
+          </AnimatedLink>{' '}
+          published on{' '}
+          <time dateTime={post.frontmatter.datetime}>
+            {post.frontmatter.date}
+          </time>
+          .<br />
+          {post.frontmatter.summary}
+        </Column>
+      </Header>
+      <Heading size="1">{post.frontmatter.title}</Heading>
+      <Body>
+        <MDXRenderer>{post.body}</MDXRenderer>
+      </Body>
+    </Layout>
   )
 }
 
