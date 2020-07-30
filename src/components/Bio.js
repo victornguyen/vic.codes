@@ -15,15 +15,16 @@ import DarkToggle from './DarkToggle'
 
 const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
 
+// TODO: derive brand gradient colors from a single brand value
 const BioBreakout = styled(Breakout)`
   margin-top: ${props => (props.inFooter ? `50px` : `0`)};
   margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
   padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
-  background: var(--color-brand);
+  background: rgb(var(--color-brand));
   background-image: linear-gradient(
     to bottom right,
-    var(--color-brand) 70%,
-    var(--color-brand)
+    rgb(var(--color-brand)) 70%,
+    rgba(var(--color-brand), 0.1)
   );
   transition: background 250ms ease;
   @media (min-width: ${sizes.viewport9}) {
@@ -40,7 +41,7 @@ const Avatar = styled(Image)`
 
   min-width: 80px;
   border-radius: 50%;
-  border: 6px solid var(--accent);
+  border: 6px solid rgb(var(--color-accent));
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
   @media (min-width: ${sizes.viewport7}) {

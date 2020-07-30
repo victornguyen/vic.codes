@@ -14,14 +14,16 @@ const TextLink = styled(animated(Link))`
       ? `rgba(0, 0, 0, 0.1)`
       : `rgba(0, 0, 0, 0.02)`};
   color: ${props =>
-    props.alternatestyle === 'true' ? `var(--accent)` : `var(--brand)`};
+    props.alternatestyle === 'true'
+      ? `rgb(var(--color-accent))`
+      : `rgb(var(--color-brand))`};
   text-shadow: ${props =>
     props.alternatestyle === 'true' ? `1px 1px 0 rgba(0, 0, 0, 0.5)` : `none`};
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.2em;
   :hover {
-    background: var(--accent);
-    color: var(--title-color);
+    background: rgb(var(--color-accent));
+    color: rgb(var(--color-accent-offset));
     text-shadow: none;
     border-color: ${props => props.alternatestyle === 'true' && `transparent`};
   }
@@ -31,10 +33,10 @@ const TextLink = styled(animated(Link))`
 const OtherLink = styled(animated(Link))`
   display: inline-block;
   border-radius: 3px;
-  border: 5px solid var(--brand);
+  border: 5px solid rgb(var(--color-brand));
   box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
   :hover {
-    border-color: var(--accent);
+    border-color: rgb(var(--color-accent));
   }
 `
 

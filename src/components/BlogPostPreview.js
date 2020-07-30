@@ -20,7 +20,7 @@ const PostTitle = styled(Title)`
 const Date = styled.time`
   position: static;
   font-size: 12px;
-  color: var(--text-light);
+  color: rgba(var(--color-text), 0.4);
   z-index: -1;
   @media (min-width: ${sizes.viewport7}) {
     position: absolute;

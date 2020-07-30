@@ -3,21 +3,10 @@ import 'typeface-rubik'
 import 'sanitize.css'
 
 const GlobalStyles = createGlobalStyle`
-  :root {
-    /* TODO: audit and move to colors.js */
-    --text-light: #999;
-    --brand: hotpink;
-    --brand-dark: #e663a3;
-    --brand-light: #fd94c7;
-    --accent: gold;
-    --title-color: #333;
-    --highlighted: rgba(253, 108, 179, 0.1);
-  }
-
   body {
-    background: var(--color-background);
+    background: rgb(var(--color-background));
     transition: background 250ms ease;
-    color: var(--color-text);
+    color: rgba(var(--color-text), 1);
     font-family: 'Rubik', sans-serif;
   }
 

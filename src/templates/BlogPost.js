@@ -20,7 +20,7 @@ import SEO from '../components/Seo'
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
 
 const Header = styled(Breakout)`
-  background: var(--color-brand);
+  background: rgb(var(--color-brand));
   transition: background 250ms ease;
   color: #fff;
   padding: 0.5em 0;

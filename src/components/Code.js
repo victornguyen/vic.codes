@@ -31,7 +31,8 @@ const Gutter = styled.span`
 `
 
 const Line = styled.div`
-  background: ${props => (props.isHighlighted ? 'var(--highlighted)' : 'none')};
+  background: ${props =>
+    props.isHighlighted ? 'rgba(var(--color-code-highlight), 0.1)' : 'none'};
   ${Gutter} {
     ${props =>
       props.isHighlighted &&
