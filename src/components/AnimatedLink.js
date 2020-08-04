@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { Children, createRef } from 'react'
+import React, { Children, createRef, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
+import { ThemeContext } from './ThemeContext'
 import Link from './Link'
 import styled from 'styled-components'
 
@@ -13,6 +14,8 @@ const TextLink = styled(animated(Link))`
   color: ${({ color }) => `rgb(var(--color-${color}))`};
   border: 1px solid rgba(var(--color-brand2-offset), 0.2);
   border-radius: 0.2em;
+  text-shadow: ${({ colorMode }) =>
+    colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.7)` : `none`};
   :hover {
     background: ${({ color }) => `rgb(var(--color-${color}))`};
     color: #000;
@@ -73,6 +76,7 @@ const AnimatedLink = ({
   ...rest
 }) => {
   const ref = createRef()
+  const { colorMode } = useContext(ThemeContext)
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: SPRING_CONFIG,
@@ -93,7 +97,7 @@ const AnimatedLink = ({
     : {}
 
   return (
-    <Element to={href} {...elementProps} {...rest}>
+    <Element to={href} colorMode={colorMode} {...elementProps} {...rest}>
       {children}
     </Element>
   )

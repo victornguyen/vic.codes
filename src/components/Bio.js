@@ -56,7 +56,7 @@ const Copy = styled.section`
   line-height: 1.5;
   color: rgb(var(--color-text));
   text-shadow: ${({ colorMode }) =>
-    colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.8)` : `none`};
+    colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.6)` : `none`};
 
   // TODO: can we use a className to differentiate the name link?
   strong {
