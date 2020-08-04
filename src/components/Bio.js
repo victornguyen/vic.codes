@@ -1,31 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { useSiteMetadata } from '../hooks'
+import Image from 'gatsby-image'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
-import sizes from '../styles/sizes'
 
-import Image from 'gatsby-image'
+import { useSiteMetadata } from '../hooks'
+import { ThemeContext } from './ThemeContext'
+
 import Breakout from './Breakout'
 import Column from './Column'
 import AnimatedLink from './AnimatedLink'
 import DarkToggle from './DarkToggle'
 
-const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
+import sizes from '../styles/sizes'
 
-// TODO: derive brand gradient colors from a single brand value
+const BioLink = props => (
+  <AnimatedLink color="brand3" {...props} alternatestyle="true" />
+)
+
 const BioBreakout = styled(Breakout)`
   margin-top: ${props => (props.inFooter ? `50px` : `0`)};
   margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
   padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
-  background: rgb(var(--color-brand));
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(var(--color-brand)) 70%,
-    rgba(var(--color-brand), 0.1)
-  );
   transition: background 250ms ease;
   @media (min-width: ${sizes.viewport9}) {
     padding-bottom: ${props => (props.inFooter ? `15px` : `25px`)};
@@ -41,7 +39,7 @@ const Avatar = styled(Image)`
 
   min-width: 80px;
   border-radius: 50%;
-  border: 6px solid rgb(var(--color-accent));
+  border: 6px solid rgb(var(--color-brand2));
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
   @media (min-width: ${sizes.viewport7}) {
@@ -56,14 +54,33 @@ const Avatar = styled(Image)`
 const Copy = styled.section`
   font-size: calc(${props => (props.inFooter ? `12px` : `16px`)} + 1vw);
   line-height: 1.5;
-  color: #fff;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  color: rgb(var(--color-text));
+  text-shadow: ${({ colorMode }) =>
+    colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.8)` : `none`};
 
+  // TODO: can we use a className to differentiate the name link?
   strong {
-    text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.5);
-    a {
-      color: #fff;
-    }
+    text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.8);
+    ${({ colorMode }) => {
+      return colorMode === 'dark'
+        ? `
+        a {
+          color: rgb(var(--color-brand2));
+          :hover {
+            background: rgb(var(--color-brand2));
+          }
+        }
+      `
+        : `
+        a {
+          color: rgb(var(--color-brand2));
+          background: rgba(var(--color-title), 0.9);
+          :hover {
+            background: rgb(var(--color-brand2));
+          }
+        }
+      `
+    }}
   }
 
   @media (min-width: 992px) {
@@ -72,6 +89,7 @@ const Copy = styled.section`
 `
 
 const Bio = ({ inFooter }) => {
+  const { colorMode } = useContext(ThemeContext)
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/face.jpg/" }) {
@@ -96,7 +114,7 @@ const Bio = ({ inFooter }) => {
     <BioBreakout type="header" inFooter={inFooter}>
       <Column>
         <Avatar fixed={fixed} alt={author} inFooter={inFooter} />
-        <Copy inFooter={inFooter}>
+        <Copy colorMode={colorMode} inFooter={inFooter}>
           <MDXProvider components={{ a: BioLink }}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>

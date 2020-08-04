@@ -6,8 +6,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: rgb(var(--color-background));
     transition: background 250ms ease;
-    color: rgba(var(--color-text), 1);
+    color: rgb(var(--color-text));
     font-family: 'Rubik', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: rgba(var(--color-title), 1);
+    text-shadow: 1.5px 1.5px 0 rgba(var(--color-title-shadow-rgba));
   }
 
   h1 {

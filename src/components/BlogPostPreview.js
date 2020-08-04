@@ -34,7 +34,7 @@ const Date = styled.time`
 const BlogPostPreview = ({ title, date, datetime, slug }) => (
   <Container>
     <PostTitle size="3">
-      <AnimatedLink href={slug} scaleTo={1.06}>
+      <AnimatedLink href={slug} scaleTo={1.06} color="brand4">
         {title || slug}
       </AnimatedLink>
     </PostTitle>

@@ -9,23 +9,15 @@ const TextLink = styled(animated(Link))`
   display: inline-block;
   text-decoration: none;
   padding: 0 0.3em;
-  background: ${props =>
-    props.alternatestyle === 'true'
-      ? `rgba(0, 0, 0, 0.1)`
-      : `rgba(0, 0, 0, 0.02)`};
-  color: ${props =>
-    props.alternatestyle === 'true'
-      ? `rgb(var(--color-accent))`
-      : `rgb(var(--color-brand))`};
-  text-shadow: ${props =>
-    props.alternatestyle === 'true' ? `1px 1px 0 rgba(0, 0, 0, 0.5)` : `none`};
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(var(--color-brand2-offset), 0.15);
+  color: ${({ color }) => `rgb(var(--color-${color}))`};
+  border: 1px solid rgba(var(--color-brand2-offset), 0.2);
   border-radius: 0.2em;
   :hover {
-    background: rgb(var(--color-accent));
-    color: rgb(var(--color-accent-offset));
+    background: ${({ color }) => `rgb(var(--color-${color}))`};
+    color: #000;
     text-shadow: none;
-    border-color: ${props => props.alternatestyle === 'true' && `transparent`};
+    border-color: transparent;
   }
 `
 
@@ -33,10 +25,10 @@ const TextLink = styled(animated(Link))`
 const OtherLink = styled(animated(Link))`
   display: inline-block;
   border-radius: 3px;
-  border: 5px solid rgb(var(--color-brand));
+  border: 5px solid rgb(var(--color-brand1));
   box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.1);
   :hover {
-    border-color: rgb(var(--color-accent));
+    border-color: rgb(var(--color-brand2));
   }
 `
 
@@ -110,6 +102,7 @@ const AnimatedLink = ({
 AnimatedLink.propTypes = {
   alternatestyle: PropTypes.string,
   children: PropTypes.node,
+  color: PropTypes.string,
   enablePerspective: PropTypes.bool,
   href: PropTypes.string.isRequired,
   scaleTo: PropTypes.number,
@@ -125,6 +118,7 @@ AnimatedLink.defaultProps = {
   // TODO: we could filter out the alternateStyle prop from rest before
   // spreading it on the element? Then we could type it as a bool?
   alternatestyle: 'false',
+  color: 'brand1',
   enablePerspective: true,
   scaleTo: 1.15,
 }

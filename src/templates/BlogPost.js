@@ -20,7 +20,7 @@ import SEO from '../components/Seo'
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
 
 const Header = styled(Breakout)`
-  background: rgb(var(--color-brand));
+  background: rgb(var(--color-brand4));
   transition: background 250ms ease;
   color: #fff;
   padding: 0.5em 0;
@@ -133,7 +133,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <Column>
           <Icon>✍</Icon>
           It&rsquo;s a blog post by{' '}
-          <AnimatedLink href="/" alternatestyle="true">
+          <AnimatedLink href="/" alternatestyle="true" color="brand2">
             {author}
           </AnimatedLink>{' '}
           published on{' '}
