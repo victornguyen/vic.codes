@@ -1,8 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
+import { normalize } from 'styled-normalize'
 import 'typeface-rubik'
-import 'sanitize.css'
 
 const GlobalStyles = createGlobalStyle`
+  ${normalize}
+
+  html {
+    line-height: 1.4;
+  }
+
   body {
     background: rgb(var(--color-background));
     transition: background 250ms ease;

@@ -14,6 +14,7 @@ const TextLink = styled(animated(Link))`
   color: ${({ color }) => `rgb(var(--color-${color}))`};
   border: 1px solid rgba(var(--color-brand2-offset), 0.2);
   border-radius: 0.2em;
+  line-height: 1.5;
   text-shadow: ${({ colorMode }) =>
     colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.7)` : `none`};
   :hover {
