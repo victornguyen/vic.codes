@@ -40,7 +40,7 @@ const Avatar = styled(Image)`
   min-width: 80px;
   border-radius: 50%;
   border: 6px solid rgb(var(--color-brand2));
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
 
   @media (min-width: ${sizes.viewport7}) {
     &[style] {

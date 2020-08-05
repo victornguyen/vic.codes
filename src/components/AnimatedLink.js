@@ -10,9 +10,9 @@ const TextLink = styled(animated(Link))`
   display: inline-block;
   text-decoration: none;
   padding: 0 0.3em;
-  background: rgba(var(--color-brand2-offset), 0.15);
+  background: rgba(var(--color-link-background), 0.15);
   color: ${({ color }) => `rgb(var(--color-${color}))`};
-  border: 1px solid rgba(var(--color-brand2-offset), 0.2);
+  border: 1px solid rgba(var(--color-link-background), 0.2);
   border-radius: 0.2em;
   line-height: 1.5;
   text-shadow: ${({ colorMode }) =>

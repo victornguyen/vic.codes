@@ -20,7 +20,7 @@ import SEO from '../components/Seo'
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
 
 const Header = styled(Breakout)`
-  background: rgb(var(--color-brand4));
+  background: rgb(var(--color-post-header));
   transition: background 250ms ease;
   color: #fff;
   padding: 0.5em 0;
@@ -41,7 +41,8 @@ const Heading = styled(Title)`
     margin: 0 0 0.6em;
   }
   padding: 1.5em 0 0.6em;
-  border-bottom: 1px dotted lightgrey;
+  border-bottom: 1px dotted rgba(var(--color-text), 0.3);
+  color: rgb(var(--color-post-title));
 `
 
 const Body = styled.main`
@@ -50,6 +51,7 @@ const Body = styled.main`
   h4,
   h5,
   h6 {
+    color: rgb(var(--color-post-subtitle));
     margin-top: 1.3em;
     margin-bottom: 0;
   }
