@@ -6,7 +6,12 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
 
   html {
+    box-sizing: border-box;
     line-height: 1.4;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 
   body {
