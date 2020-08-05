@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 // TODO: centralise prism theme selection? imported here and in Code
 import theme from 'prism-react-renderer/themes/oceanicNext'
@@ -122,6 +123,10 @@ const Body = styled.main`
   }
 `
 
+const PostInlineLink = props => (
+  <AnimatedLink {...props} color="post-link-text" alternate />
+)
+
 const BlogPostTemplate = ({ data, location }) => {
   const { author } = useSiteMetadata()
   const post = data.mdx
@@ -136,7 +141,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <Column>
           <Icon>✍</Icon>
           It&rsquo;s a blog post by{' '}
-          <AnimatedLink href="/" alternatestyle="true" color="brand2">
+          <AnimatedLink href="/" color="brand2">
             {author}
           </AnimatedLink>{' '}
           published on{' '}
@@ -149,7 +154,9 @@ const BlogPostTemplate = ({ data, location }) => {
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>
       <Body>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <MDXProvider components={{ a: PostInlineLink }}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MDXProvider>
       </Body>
     </Layout>
   )

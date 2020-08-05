@@ -10,16 +10,21 @@ const TextLink = styled(animated(Link))`
   display: inline-block;
   text-decoration: none;
   padding: 0 0.3em;
-  background: rgba(var(--color-link-background), 0.15);
+  background: ${({ alternate }) =>
+    alternate === 'true'
+      ? `rgb(var(--color-link-bg-alt))`
+      : `rgba(var(--color-link-bg), 0.15)`};
   color: ${({ color }) => `rgb(var(--color-${color}))`};
-  border: 1px solid rgba(var(--color-link-background), 0.2);
+  border: 1px solid rgba(var(--color-link-bg), 0.2);
   border-radius: 0.2em;
   line-height: 1.5;
-  text-shadow: ${({ colorMode }) =>
-    colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.7)` : `none`};
+  font-weight: ${({ alternate }) => (alternate === 'true' ? `bold` : `normal`)};
+  // TODO: lose colormode and use vars
+  text-shadow: ${({ colormode }) =>
+    colormode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.7)` : `none`};
   :hover {
     background: ${({ color }) => `rgb(var(--color-${color}))`};
-    color: #000;
+    color: rgb(var(--color-link-text-hover));
     text-shadow: none;
     border-color: transparent;
   }
@@ -70,10 +75,11 @@ const childrenIsText = children =>
   typeof Children.toArray(children)[0] === 'string'
 
 const AnimatedLink = ({
+  alternate,
   children,
+  enablePerspective,
   href,
   scaleTo,
-  enablePerspective,
   ...rest
 }) => {
   const ref = createRef()
@@ -98,14 +104,20 @@ const AnimatedLink = ({
     : {}
 
   return (
-    <Element to={href} colorMode={colorMode} {...elementProps} {...rest}>
+    <Element
+      to={href}
+      alternate={alternate.toString()}
+      colormode={colorMode}
+      {...elementProps}
+      {...rest}
+    >
       {children}
     </Element>
   )
 }
 
 AnimatedLink.propTypes = {
-  alternatestyle: PropTypes.string,
+  alternate: PropTypes.bool,
   children: PropTypes.node,
   color: PropTypes.string,
   enablePerspective: PropTypes.bool,
@@ -114,18 +126,21 @@ AnimatedLink.propTypes = {
 }
 
 AnimatedLink.defaultProps = {
-  // Because this attribute gets rendered to the DOM, it needs to be lowercase
-  // and a string, otherwise it's not a valid custom attribute.
-  // We could not render it to the DOM, by destructuring it in AnimatedLink
-  // props, but we would never use it in the actual component, so eslint
-  // wouldn't like that. So instead, we keep it in '...rest' and render it to
-  // the DOM.
-  // TODO: we could filter out the alternateStyle prop from rest before
-  // spreading it on the element? Then we could type it as a bool?
-  alternatestyle: 'false',
-  color: 'brand1',
+  alternate: false,
+  color: 'brand4',
   enablePerspective: true,
   scaleTo: 1.15,
 }
 
 export default AnimatedLink
+
+const coloredButton = color => props => (
+  <AnimatedLink {...props} color={color} />
+)
+
+// We export AnimatedLinks with pre-baked colours so they can be easily
+// configured in MDXProvider and consumed via MDXRenderer.
+export const LinkBrand1 = coloredButton('brand1')
+export const LinkBrand2 = coloredButton('brand2')
+export const LinkBrand3 = coloredButton('brand3')
+export const LinkBrand4 = coloredButton('brand4')

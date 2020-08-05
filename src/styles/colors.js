@@ -81,8 +81,16 @@ export const COLORS = {
     light: PALETTE.magenta.light,
     dark: PALETTE.magenta.dark,
   },
-  'link-background': {
+  'link-bg': {
     light: PALETTE.grey.cool,
+    dark: PALETTE.black.pure,
+  },
+  'link-bg-alt': {
+    light: PALETTE.white.mystic,
+    dark: PALETTE.black.jungle,
+  },
+  'link-text-hover': {
+    light: PALETTE.black.pure,
     dark: PALETTE.black.pure,
   },
   'post-header': {
@@ -97,8 +105,16 @@ export const COLORS = {
     light: PALETTE.grey.space,
     dark: PALETTE.yellow.dark,
   },
+  'post-link-text': {
+    light: PALETTE.blue.light,
+    dark: PALETTE.magenta.dark,
+  },
   'code-highlight': {
     light: PALETTE.grey.warm,
     dark: PALETTE.grey.warm,
+  },
+  footer: {
+    light: PALETTE.white.mystic,
+    dark: PALETTE.black.jungle,
   },
 }

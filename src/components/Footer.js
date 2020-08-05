@@ -10,7 +10,7 @@ import Breakout from './Breakout'
 import Column from './Column'
 
 const FooterBreakout = styled(Breakout)`
-  background: rgba(0, 0, 0, 0.04);
+  background: rgb(var(--color-footer));
 `
 
 const FooterColumn = styled(Column)`

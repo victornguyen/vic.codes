@@ -11,14 +11,10 @@ import { ThemeContext } from './ThemeContext'
 
 import Breakout from './Breakout'
 import Column from './Column'
-import AnimatedLink from './AnimatedLink'
+import { LinkBrand3 } from './AnimatedLink'
 import DarkToggle from './DarkToggle'
 
 import sizes from '../styles/sizes'
-
-const BioLink = props => (
-  <AnimatedLink color="brand3" {...props} alternatestyle="true" />
-)
 
 const BioBreakout = styled(Breakout)`
   margin-top: ${props => (props.inFooter ? `50px` : `0`)};
@@ -115,7 +111,7 @@ const Bio = ({ inFooter }) => {
       <Column>
         <Avatar fixed={fixed} alt={author} inFooter={inFooter} />
         <Copy colorMode={colorMode} inFooter={inFooter}>
-          <MDXProvider components={{ a: BioLink }}>
+          <MDXProvider components={{ a: LinkBrand3 }}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </Copy>
