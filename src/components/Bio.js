@@ -54,29 +54,20 @@ const Copy = styled.section`
   text-shadow: ${({ colorMode }) =>
     colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.6)` : `none`};
 
-  // TODO: can we use a className to differentiate the name link?
+  // Override style for name link in bio copy.
+  // Can only provide one component to render links from bio.md, so we resort
+  // to this!
   strong {
     text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.8);
-    ${({ colorMode }) => {
-      return colorMode === 'dark'
-        ? `
-        a {
-          color: rgb(var(--color-brand2));
-          :hover {
-            background: rgb(var(--color-brand2));
-          }
-        }
-      `
-        : `
-        a {
-          color: rgb(var(--color-brand2));
-          background: rgba(var(--color-title), 0.9);
-          :hover {
-            background: rgb(var(--color-brand2));
-          }
-        }
-      `
-    }}
+    a {
+      font-weight: bold;
+      color: rgb(var(--color-brand2));
+      ${({ colorMode }) =>
+        colorMode === 'light' && `background: rgba(var(--color-title), 0.9);`}
+      :hover {
+        background: rgb(var(--color-brand2));
+      }
+    }
   }
 
   @media (min-width: 992px) {
