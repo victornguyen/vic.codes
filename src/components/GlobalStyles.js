@@ -7,7 +7,6 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-    line-height: 1.4;
   }
 
   *, *:before, *:after {
@@ -19,6 +18,8 @@ const GlobalStyles = createGlobalStyle`
     transition: background 250ms ease;
     color: rgb(var(--color-text));
     font-family: 'Rubik', sans-serif;
+    line-height: 1.4;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
