@@ -15,11 +15,11 @@ import Breakout from '../components/Breakout'
 import Column from '../components/Column'
 import AnimatedLink from '../components/AnimatedLink'
 import SEO from '../components/Seo'
+import { PositionedToggle } from '../components/DarkToggle'
 
 // HAX: these constants don't appear to be intended to be consumed outside of
 // gatsby-remark-images' internals. Prepare for breaking changes.
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
-import DarkToggle from '../components/DarkToggle'
 
 const Header = styled(Breakout)`
   background: rgb(var(--color-post-header));
@@ -133,6 +133,7 @@ const BlogPostTemplate = ({ data, location }) => {
 
   return (
     <Layout location={location} showBioFooter>
+      <PositionedToggle />
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -149,7 +150,7 @@ const BlogPostTemplate = ({ data, location }) => {
             {post.frontmatter.date}
           </time>
           .<br />
-          {post.frontmatter.summary} <DarkToggle />
+          {post.frontmatter.summary}
         </Column>
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>

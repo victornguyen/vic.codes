@@ -36,6 +36,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.22",
+    "react-switch": "^5.0.1",
     "styled-components": "^4.2.1",
     "styled-normalize": "^8.0.7",
     "typeface-rubik": "0.0.72"

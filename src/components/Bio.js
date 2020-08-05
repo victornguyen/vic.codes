@@ -12,7 +12,6 @@ import { ThemeContext } from './ThemeContext'
 import Breakout from './Breakout'
 import Column from './Column'
 import { LinkBrand3 } from './AnimatedLink'
-import DarkToggle from './DarkToggle'
 
 import sizes from '../styles/sizes'
 
@@ -106,7 +105,6 @@ const Bio = ({ inFooter }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </Copy>
-        {!inFooter && <DarkToggle />}
       </Column>
     </BioBreakout>
   )
