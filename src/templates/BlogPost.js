@@ -18,6 +18,7 @@ import SEO from '../components/Seo'
 // HAX: these constants don't appear to be intended to be consumed outside of
 // gatsby-remark-images' internals. Prepare for breaking changes.
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
+import DarkToggle from '../components/DarkToggle'
 
 const Header = styled(Breakout)`
   background: rgb(var(--color-post-header));
@@ -143,7 +144,7 @@ const BlogPostTemplate = ({ data, location }) => {
             {post.frontmatter.date}
           </time>
           .<br />
-          {post.frontmatter.summary}
+          {post.frontmatter.summary} <DarkToggle />
         </Column>
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>

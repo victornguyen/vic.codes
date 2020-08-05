@@ -119,7 +119,7 @@ const Bio = ({ inFooter }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </Copy>
-        <DarkToggle />
+        {!inFooter && <DarkToggle />}
       </Column>
     </BioBreakout>
   )
