@@ -1,8 +1,7 @@
-// typefaces
-import 'typeface-rubik'
+import React from 'react'
+import App from './src/components/App'
 
-// css reset
-import 'sanitize.css'
-
-// global styles
-import './src/styles/global.css'
+// eslint-disable-next-line react/prop-types
+export const wrapRootElement = ({ element }) => {
+  return <App>{element}</App>
+}

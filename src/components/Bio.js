@@ -1,29 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { useSiteMetadata } from '../hooks'
+import Image from 'gatsby-image'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
-import sizes from '../styles/sizes'
 
-import Image from 'gatsby-image'
+import { useSiteMetadata } from '../hooks'
+import { ThemeContext } from './ThemeContext'
+
 import Breakout from './Breakout'
 import Column from './Column'
-import AnimatedLink from './AnimatedLink'
+import { LinkBrand3 } from './AnimatedLink'
 
-const BioLink = props => <AnimatedLink {...props} alternatestyle="true" />
+import sizes from '../styles/sizes'
 
 const BioBreakout = styled(Breakout)`
   margin-top: ${props => (props.inFooter ? `50px` : `0`)};
   margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
   padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
-  background: var(--brand);
-  background-image: linear-gradient(
-    to bottom right,
-    var(--brand) 70%,
-    var(--brand-light)
-  );
+  transition: background 250ms ease;
   @media (min-width: ${sizes.viewport9}) {
     padding-bottom: ${props => (props.inFooter ? `15px` : `25px`)};
   }
@@ -38,8 +34,8 @@ const Avatar = styled(Image)`
 
   min-width: 80px;
   border-radius: 50%;
-  border: 6px solid var(--accent);
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border: 6px solid rgb(var(--color-brand2));
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
 
   @media (min-width: ${sizes.viewport7}) {
     &[style] {
@@ -53,13 +49,23 @@ const Avatar = styled(Image)`
 const Copy = styled.section`
   font-size: calc(${props => (props.inFooter ? `12px` : `16px`)} + 1vw);
   line-height: 1.5;
-  color: #fff;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  color: rgb(var(--color-text));
+  text-shadow: ${({ colorMode }) =>
+    colorMode === `dark` ? `1.5px 1.5px 0 rgba(0, 0, 0, 0.6)` : `none`};
 
+  // Override style for name link in bio copy.
+  // Can only provide one component to render links from bio.md, so we resort
+  // to this!
   strong {
-    text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.8);
     a {
-      color: #fff;
+      font-weight: bold;
+      color: rgb(var(--color-brand2));
+      ${({ colorMode }) =>
+        colorMode === 'light' && `background: rgba(var(--color-title), 0.9);`}
+      :hover {
+        background: rgb(var(--color-brand2));
+      }
     }
   }
 
@@ -69,11 +75,12 @@ const Copy = styled.section`
 `
 
 const Bio = ({ inFooter }) => {
+  const { colorMode } = useContext(ThemeContext)
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/face.jpg/" }) {
         childImageSharp {
-          fixed(width: 80, height: 80) {
+          fixed(width: 90, height: 90, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -93,8 +100,8 @@ const Bio = ({ inFooter }) => {
     <BioBreakout type="header" inFooter={inFooter}>
       <Column>
         <Avatar fixed={fixed} alt={author} inFooter={inFooter} />
-        <Copy inFooter={inFooter}>
-          <MDXProvider components={{ a: BioLink }}>
+        <Copy colorMode={colorMode} inFooter={inFooter}>
+          <MDXProvider components={{ a: LinkBrand3 }}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </Copy>

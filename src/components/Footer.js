@@ -10,14 +10,14 @@ import Breakout from './Breakout'
 import Column from './Column'
 
 const FooterBreakout = styled(Breakout)`
-  background: rgba(0, 0, 0, 0.04);
+  background: rgb(var(--color-footer));
 `
 
 const FooterColumn = styled(Column)`
   padding: 1.5em 0;
   font-size: 10px;
   text-align: center;
-  color: var(--text-light);
+  color: rgba(var(--color-text), 0.4);
   @media (min-width: ${sizes.viewport4}) {
     font-size: 12px;
     text-align: left;

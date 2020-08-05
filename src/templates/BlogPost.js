@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 // TODO: centralise prism theme selection? imported here and in Code
 import theme from 'prism-react-renderer/themes/oceanicNext'
@@ -14,13 +15,15 @@ import Breakout from '../components/Breakout'
 import Column from '../components/Column'
 import AnimatedLink from '../components/AnimatedLink'
 import SEO from '../components/Seo'
+import { PositionedToggle } from '../components/DarkToggle'
 
 // HAX: these constants don't appear to be intended to be consumed outside of
 // gatsby-remark-images' internals. Prepare for breaking changes.
 import { imageWrapperClass, imageClass } from 'gatsby-remark-images/constants'
 
 const Header = styled(Breakout)`
-  background: var(--brand);
+  background: rgb(var(--color-post-header));
+  transition: background 250ms ease;
   color: #fff;
   padding: 0.5em 0;
   font-size: calc(6px + 1vw);
@@ -40,7 +43,8 @@ const Heading = styled(Title)`
     margin: 0 0 0.6em;
   }
   padding: 1.5em 0 0.6em;
-  border-bottom: 1px dotted lightgrey;
+  border-bottom: 1px dotted rgba(var(--color-text), 0.3);
+  color: rgb(var(--color-post-title));
 `
 
 const Body = styled.main`
@@ -49,6 +53,7 @@ const Body = styled.main`
   h4,
   h5,
   h6 {
+    color: rgb(var(--color-post-subtitle));
     margin-top: 1.3em;
     margin-bottom: 0;
   }
@@ -118,12 +123,17 @@ const Body = styled.main`
   }
 `
 
+const PostInlineLink = props => (
+  <AnimatedLink {...props} color="post-link-text" alternate />
+)
+
 const BlogPostTemplate = ({ data, location }) => {
   const { author } = useSiteMetadata()
   const post = data.mdx
 
   return (
     <Layout location={location} showBioFooter>
+      <PositionedToggle />
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -132,7 +142,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <Column>
           <Icon>✍</Icon>
           It&rsquo;s a blog post by{' '}
-          <AnimatedLink href="/" alternatestyle="true">
+          <AnimatedLink href="/" color="brand2">
             {author}
           </AnimatedLink>{' '}
           published on{' '}
@@ -145,7 +155,9 @@ const BlogPostTemplate = ({ data, location }) => {
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>
       <Body>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <MDXProvider components={{ a: PostInlineLink }}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MDXProvider>
       </Body>
     </Layout>
   )

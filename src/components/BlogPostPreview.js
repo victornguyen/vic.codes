@@ -20,7 +20,7 @@ const PostTitle = styled(Title)`
 const Date = styled.time`
   position: static;
   font-size: 12px;
-  color: var(--text-light);
+  color: rgba(var(--color-text), 0.4);
   z-index: -1;
   @media (min-width: ${sizes.viewport7}) {
     position: absolute;
@@ -34,7 +34,7 @@ const Date = styled.time`
 const BlogPostPreview = ({ title, date, datetime, slug }) => (
   <Container>
     <PostTitle size="3">
-      <AnimatedLink href={slug} scaleTo={1.06}>
+      <AnimatedLink href={slug} scaleTo={1.06} color="brand4">
         {title || slug}
       </AnimatedLink>
     </PostTitle>

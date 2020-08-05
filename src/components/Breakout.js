@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -13,7 +13,7 @@ const createNode = type =>
   `
 
 const Breakout = ({ children, className, type }) => {
-  const BreakoutNode = createNode(type)
+  const BreakoutNode = useMemo(() => createNode(type), [type])
   return <BreakoutNode className={className}>{children}</BreakoutNode>
 }
 
