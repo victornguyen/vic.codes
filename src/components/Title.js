@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const createNode = size =>
+const createNode = (size) =>
   styled[`h${size}`]`
     margin-top: 1.5em;
     margin-bottom: 0.6em;

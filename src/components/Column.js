@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import sizes from '../styles/sizes'
 
-const createNode = type =>
+const createNode = (type) =>
   styled[type]`
     width: 85%;
     margin-left: auto;

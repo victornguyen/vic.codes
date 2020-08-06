@@ -31,10 +31,10 @@ const Gutter = styled.span`
 `
 
 const Line = styled.div`
-  background: ${props =>
+  background: ${(props) =>
     props.isHighlighted ? 'rgba(var(--color-code-highlight), 0.1)' : 'none'};
   ${Gutter} {
-    ${props =>
+    ${(props) =>
       props.isHighlighted &&
       `
       color: ${theme.plain.backgroundColor};
@@ -53,8 +53,8 @@ function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
     const lineNumbers = RE.exec(meta)[1]
       .split(',')
-      .map(v => v.split('-').map(y => parseInt(y, 10)))
-    return index => {
+      .map((v) => v.split('-').map((y) => parseInt(y, 10)))
+    return (index) => {
       const lineNumber = index + 1
       const inRange = lineNumbers.some(([start, end]) =>
         end ? lineNumber >= start && lineNumber <= end : lineNumber === start

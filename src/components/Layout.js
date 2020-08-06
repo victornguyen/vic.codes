@@ -24,7 +24,7 @@ const LayoutFooter = styled.footer`
 const mdxComponents = {
   a: AnimatedLink,
   blockquote: Blockquote,
-  pre: preProps => {
+  pre: (preProps) => {
     const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test
     if (props) {

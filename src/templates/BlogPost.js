@@ -123,7 +123,7 @@ const Body = styled.main`
   }
 `
 
-const PostInlineLink = props => (
+const PostInlineLink = (props) => (
   <AnimatedLink {...props} color="post-link-text" alternate />
 )
 

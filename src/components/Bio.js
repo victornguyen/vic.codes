@@ -16,12 +16,12 @@ import { LinkBrand3 } from './AnimatedLink'
 import sizes from '../styles/sizes'
 
 const BioBreakout = styled(Breakout)`
-  margin-top: ${props => (props.inFooter ? `50px` : `0`)};
-  margin-bottom: ${props => (props.inFooter ? `0` : `20px`)};
-  padding: ${props => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
+  margin-top: ${(props) => (props.inFooter ? `50px` : `0`)};
+  margin-bottom: ${(props) => (props.inFooter ? `0` : `20px`)};
+  padding: ${(props) => (props.inFooter ? `15px 0 1.5vw 0` : `25px 0 2.5vw 0`)};
   transition: background 250ms ease;
   @media (min-width: ${sizes.viewport9}) {
-    padding-bottom: ${props => (props.inFooter ? `15px` : `25px`)};
+    padding-bottom: ${(props) => (props.inFooter ? `15px` : `25px`)};
   }
 `
 
@@ -41,13 +41,13 @@ const Avatar = styled(Image)`
     &[style] {
       position: absolute !important;
     }
-    top: ${props => (props.inFooter ? `35px` : `45px`)};
+    top: ${(props) => (props.inFooter ? `35px` : `45px`)};
     margin-left: -110px;
   }
 `
 
 const Copy = styled.section`
-  font-size: calc(${props => (props.inFooter ? `12px` : `16px`)} + 1vw);
+  font-size: calc(${(props) => (props.inFooter ? `12px` : `16px`)} + 1vw);
   line-height: 1.5;
   color: rgb(var(--color-text));
   text-shadow: ${({ colorMode }) =>
@@ -70,7 +70,7 @@ const Copy = styled.section`
   }
 
   @media (min-width: 992px) {
-    font-size: ${props => (props.inFooter ? `22px` : `26px`)};
+    font-size: ${(props) => (props.inFooter ? `22px` : `26px`)};
   }
 `
 

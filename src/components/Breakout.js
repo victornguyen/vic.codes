@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const createNode = type =>
+const createNode = (type) =>
   styled[type]`
     position: relative;
     width: 100vw;
