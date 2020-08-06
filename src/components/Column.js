@@ -16,7 +16,7 @@ const createNode = (type) =>
   `
 
 const Column = ({ children, className, type }) => {
-  const ColumnNode = React.useMemo(() => createNode(type), [type])
+  const ColumnNode = createNode(type)
   return <ColumnNode className={className}>{children}</ColumnNode>
 }
 

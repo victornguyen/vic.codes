@@ -5,7 +5,7 @@ module.exports = {
     title: `Victor Nguyen`,
     author: `Victor Nguyen`,
     job: `Frontend Developer`,
-    description: `It's another blog made by another frontend developer on the Internet.`,
+    description: `It's another blog made by another developer on the Internet.`,
     siteUrl: `https://vic.codes/`,
   },
   plugins: [
