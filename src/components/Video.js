@@ -21,10 +21,18 @@ const Wrapper = styled('span')`
   }
 `
 
-const Video = (props) => (
+const Video = ({ autoPlay, img, loop, muted, playsInline, src, type }) => (
   <Wrapper
     dangerouslySetInnerHTML={{
-      __html: videoTagString(props),
+      __html: videoTagString({
+        autoPlay,
+        img,
+        loop,
+        muted,
+        playsInline,
+        src,
+        type,
+      }),
     }}
   />
 )
