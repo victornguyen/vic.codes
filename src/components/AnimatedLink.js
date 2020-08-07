@@ -70,7 +70,7 @@ const trans = (x, y, s) =>
 
 // Returns true if given React children is a string
 // TODO: test
-const childrenIsText = children =>
+const childrenIsText = (children) =>
   Children.count(children) === 1 &&
   typeof Children.toArray(children)[0] === 'string'
 
@@ -134,7 +134,7 @@ AnimatedLink.defaultProps = {
 
 export default AnimatedLink
 
-const coloredButton = color => props => (
+const coloredButton = (color) => (props) => (
   <AnimatedLink {...props} color={color} />
 )
 

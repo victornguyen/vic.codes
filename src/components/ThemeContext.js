@@ -15,7 +15,7 @@ export const ThemeProvider = ({ children }) => {
     rawSetColorMode(initialColorValue)
   }, [])
 
-  const setColorMode = mode => {
+  const setColorMode = (mode) => {
     const root = window.document.documentElement
 
     // Update React colorMode state
