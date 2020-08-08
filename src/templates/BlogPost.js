@@ -4,9 +4,8 @@ import { graphql } from 'gatsby'
 import { useSiteMetadata } from '../hooks'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-// TODO: centralise prism theme selection? imported here and in Code
-import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
+import theme from '../styles/prism'
 import sizes from '../styles/sizes'
 
 import Layout from '../components/Layout'

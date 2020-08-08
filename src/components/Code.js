@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/oceanicNext'
 import styled from 'styled-components'
+import theme from '../styles/prism'
 import sizes from '../styles/sizes'
 
 import Breakout from './Breakout'
