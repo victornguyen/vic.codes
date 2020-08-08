@@ -61,6 +61,6 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
 }
 
 // eslint-disable-next-line react/prop-types
-export const wrapRootElement = ({ element }) => {
+export const wrapPageElement = ({ element }) => {
   return <App>{element}</App>
 }
