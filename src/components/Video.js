@@ -5,7 +5,7 @@ import styled from 'styled-components'
 // We need render a <video> node this way so the `muted` attribute gets applied.
 // https://github.com/facebook/react/issues/6544
 // https://github.com/DylanVann/react-video-tag
-const videoTagString = props => {
+const videoTagString = (props) => {
   const autoPlay = props.autoPlay ? ' autoplay' : ''
   const loop = props.loop ? ' loop' : ''
   const muted = props.muted ? ' muted' : ''
@@ -21,10 +21,18 @@ const Wrapper = styled('span')`
   }
 `
 
-const Video = props => (
+const Video = ({ autoPlay, img, loop, muted, playsInline, src, type }) => (
   <Wrapper
     dangerouslySetInnerHTML={{
-      __html: videoTagString(props),
+      __html: videoTagString({
+        autoPlay,
+        img,
+        loop,
+        muted,
+        playsInline,
+        src,
+        type,
+      }),
     }}
   />
 )

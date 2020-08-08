@@ -24,7 +24,7 @@ const DarkToggle = ({ className }) => {
         onHandleColor="#182026"
         offColor="#6C6C6C"
         onColor="#FAC863"
-        onChange={checked => {
+        onChange={(checked) => {
           setColorMode(checked ? 'dark' : 'light')
         }}
         uncheckedIcon={false}
