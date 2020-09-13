@@ -122,6 +122,10 @@ const Body = styled.main`
   }
 `
 
+const Acronym = styled.abbr`
+  cursor: help;
+`
+
 const PostInlineLink = (props) => (
   <AnimatedLink {...props} color="post-link-text" alternate />
 )
@@ -154,7 +158,7 @@ const BlogPostTemplate = ({ data, location }) => {
       </Header>
       <Heading size="1">{post.frontmatter.title}</Heading>
       <Body>
-        <MDXProvider components={{ a: PostInlineLink }}>
+        <MDXProvider components={{ a: PostInlineLink, abbr: Acronym }}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </Body>

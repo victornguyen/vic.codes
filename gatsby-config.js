@@ -50,6 +50,16 @@ module.exports = {
           },
           { resolve: `gatsby-remark-copy-linked-files` },
           { resolve: `gatsby-remark-smartypants` },
+          {
+            resolve: `gatsby-remark-acronyms`,
+            options: {
+              acronyms: {
+                IRL: `in real life`,
+                RPG: `role playing game`,
+                OP: `overpowered`,
+              },
+            },
+          },
         ],
       },
     },
