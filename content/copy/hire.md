@@ -3,4 +3,4 @@ title: Hire
 ---
 
 - [LinkedIn](https://www.linkedin.com/in/therealvictornguyen)
-- [Resume](/victor-nguyen.pdf)
+- [Resume.pdf](/victor-nguyen.pdf)

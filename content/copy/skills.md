@@ -2,8 +2,8 @@
 title: Skills
 ---
 
-- JavaScript (ES6+)
-- TypeScript
+- TypeScript (ES, JS)
 - React
+- Next.js
 - CSS
 - Node
