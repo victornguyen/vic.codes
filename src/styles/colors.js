@@ -4,6 +4,7 @@ const PALETTE = {
     rich: '17, 17, 17',
     jungle: '24, 32, 38',
     oceanic: '27, 43, 52',
+    tokyo: '36, 40, 59',
   },
   grey: {
     dove: '108, 108, 108',
@@ -63,7 +64,7 @@ export const COLORS = {
   },
   background: {
     light: PALETTE.white.cultured,
-    dark: PALETTE.black.oceanic,
+    dark: PALETTE.black.tokyo,
   },
   brand1: {
     light: PALETTE.green.light,
