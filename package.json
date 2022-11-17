@@ -61,13 +61,13 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "lint": "eslint src",
     "pretty": "prettier --check src/**/*.js",
-    "start": "npm run develop",
+    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
