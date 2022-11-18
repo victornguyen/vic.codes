@@ -137,10 +137,7 @@ const BlogPostTemplate = ({ data, location }) => {
   return (
     <Layout location={location} showBioFooter>
       <PositionedToggle />
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={post.frontmatter.title} />
       <Header>
         <Column>
           <Icon>✍</Icon>
@@ -177,7 +174,6 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")

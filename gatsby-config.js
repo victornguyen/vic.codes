@@ -1,4 +1,4 @@
-const mdxFeed = require('gatsby-plugin-mdx/feed')
+// const mdxFeed = require('gatsby-plugin-mdx/feed')
 
 module.exports = {
   siteMetadata: {
@@ -50,34 +50,34 @@ module.exports = {
           },
           { resolve: `gatsby-remark-copy-linked-files` },
           { resolve: `gatsby-remark-smartypants` },
-          {
-            resolve: `gatsby-remark-acronyms`,
-            options: {
-              acronyms: {
-                IRL: `in real life`,
-                RPG: `role playing game`,
-                OP: `overpowered`,
-              },
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-acronyms`,
+          //   options: {
+          //     acronyms: {
+          //       IRL: `in real life`,
+          //       RPG: `role playing game`,
+          //       OP: `overpowered`,
+          //     },
+          //   },
+          // },
         ],
       },
     },
     `gatsby-plugin-twitter`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GA_TRACKING_ID,
-        anonymize: true,
-        respectDNT: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: mdxFeed,
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GA_TRACKING_ID,
+    //     anonymize: true,
+    //     respectDNT: true,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-feed`,
+    //   options: mdxFeed,
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
